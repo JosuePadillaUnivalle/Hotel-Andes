@@ -1,0 +1,13 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { validateSearch, nights, addDays } from "../lib/rooms.ts";
+const now = "2026-10-23";
+const search = { checkIn: "2026-11-10", checkOut: "2026-11-12", guests: 2 };
+test("fechas válidas y dos noches", () => { assert.equal(validateSearch(search, now), null); assert.equal(nights(search.checkIn, search.checkOut), 2); });
+test("salida igual o anterior a la llegada", () => { for (const d of ["2026-11-10", "2026-11-09"]) assert.match(validateSearch({ ...search, checkOut: d }, now), /posterior/); });
+test("rechaza fechas imposibles", () => { for (const d of ["2026-02-30", "2026-13-01", "abc", "2026-1-01"]) assert.match(validateSearch({ ...search, checkIn: d }, now), /válidas/); });
+test("rechaza fechas pasadas", () => assert.match(validateSearch({ ...search, checkIn: "2026-10-22" }, now), /anterior/));
+test("limita huéspedes a enteros de 1 a 4", () => { for (const guests of [0, -1, 5, 1.5, NaN, "2"]) assert.match(validateSearch({ ...search, guests }, now), /huéspedes/); });
+test("máximo de 30 noches", () => { assert.equal(validateSearch({ ...search, checkOut: addDays(search.checkIn, 30) }, now), null); assert.match(validateSearch({ ...search, checkOut: addDays(search.checkIn, 31) }, now), /30 noches/); });
+test("máximo de un año de anticipación", () => assert.match(validateSearch({ ...search, checkIn: addDays(now, 366), checkOut: addDays(now, 367) }, now), /año/));
+test("año bisiesto y cambios de mes", () => { assert.equal(addDays("2028-02-28", 1), "2028-02-29"); assert.equal(addDays("2028-02-29", 1), "2028-03-01"); assert.equal(nights("2028-02-28", "2028-03-01"), 2); });
