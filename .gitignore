@@ -46,3 +46,4 @@ yarn-error.log*
 
 # Regenerated test evidence
 /evidence/cypress/downloads/
+/evidence/server.log

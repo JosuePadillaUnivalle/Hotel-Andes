@@ -1,0 +1,10 @@
+
+> site-creator-vinext-starter@0.1.0 test:selenium
+> node tests/selenium/aceptacion.mjs
+
+PASS SE01: Catálogo presenta tres habitaciones y precios
+FAIL SE02: element click intercepted: Element is not clickable at point (712, 1263)
+  (Session info: chrome=155.0.8059.39)
+FAIL SE03: element click intercepted: Element is not clickable at point (1290, 1083)
+  (Session info: chrome=155.0.8059.39)
+PASS SE04: Vista móvil sin desborde y menú operable

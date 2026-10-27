@@ -1,0 +1,152 @@
+{
+  "cutoff": "2026-10-27",
+  "environment": "Windows local; Chrome headless; D1 local",
+  "unit": {
+    "passed": 8,
+    "total": 8
+  },
+  "api": {
+    "passedGroups": 6,
+    "totalGroups": 6
+  },
+  "cypress": {
+    "passed": 6,
+    "total": 6,
+    "failed": 0,
+    "durationMs": 4343
+  },
+  "selenium": {
+    "passed": 4,
+    "total": 4,
+    "browser": "chrome",
+    "version": "155.0.8059.86"
+  },
+  "acceptanceCriteria": {
+    "passed": 11,
+    "total": 11,
+    "scope": "Defined CA01-CA11, not code coverage"
+  },
+  "typecheck": {
+    "exitCode": 0
+  },
+  "build": {
+    "exitCode": 0
+  },
+  "remoteCI": {
+    "conclusion": "success",
+    "jobs": [
+      {
+        "completedAt": "2026-10-27T20:29:59Z",
+        "conclusion": "success",
+        "databaseId": 122450899050,
+        "name": "calidad",
+        "startedAt": "2026-10-27T20:28:46Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-27T20:28:47Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-27T20:28:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:28:48Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-27T20:28:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:28:49Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 3,
+            "startedAt": "2026-10-27T20:28:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:16Z",
+            "conclusion": "success",
+            "name": "Run npm ci",
+            "number": 4,
+            "startedAt": "2026-10-27T20:28:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:21Z",
+            "conclusion": "success",
+            "name": "Reglas y tipos",
+            "number": 5,
+            "startedAt": "2026-10-27T20:29:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:27Z",
+            "conclusion": "success",
+            "name": "Compilar y preparar base local",
+            "number": 6,
+            "startedAt": "2026-10-27T20:29:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:52Z",
+            "conclusion": "success",
+            "name": "API y aceptaciÃ³n en Chrome",
+            "number": 7,
+            "startedAt": "2026-10-27T20:29:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:54Z",
+            "conclusion": "success",
+            "name": "Conservar evidencia de la ejecuciÃ³n",
+            "number": 8,
+            "startedAt": "2026-10-27T20:29:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:56Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 15,
+            "startedAt": "2026-10-27T20:29:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:56Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 16,
+            "startedAt": "2026-10-27T20:29:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-27T20:29:57Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-10-27T20:29:56Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966/job/122450899050"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966"
+  },
+  "groupReview": "pending QA04",
+  "roles": "proposed pending group review",
+  "notMeasured": [
+    "line coverage",
+    "team velocity",
+    "defect density per KLOC",
+    "load capacity",
+    "full WCAG audit"
+  ],
+  "repo": "https://github.com/JosuePadillaUnivalle/Hotel-Andes",
+  "board": "https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa"
+}

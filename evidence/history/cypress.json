@@ -1,0 +1,274 @@
+{
+  "browserName": "chrome",
+  "browserPath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "browserVersion": "155.0.8059.86",
+  "config": {
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots",
+    "downloadsFolder": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\downloads",
+    "viewportWidth": 1440,
+    "viewportHeight": 1000,
+    "baseUrl": "http://127.0.0.1:5173",
+    "supportFile": false,
+    "specPattern": "tests/cypress/**/*.cy.cjs",
+    "projectRoot": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes",
+    "projectName": "hotel-andes",
+    "configFile": "cypress.config.cjs",
+    "isTextTerminal": true,
+    "animationDistanceThreshold": 5,
+    "arch": "x64",
+    "blockHosts": null,
+    "chromeWebSecurity": true,
+    "clientCertificates": [],
+    "defaultBrowser": null,
+    "defaultCommandTimeout": 4000,
+    "env": {},
+    "expose": {},
+    "experimentalCspAllowList": false,
+    "experimentalInteractiveRunEvents": false,
+    "experimentalRunAllSpecs": false,
+    "experimentalModifyObstructiveThirdPartyCode": false,
+    "injectDocumentDomain": false,
+    "experimentalOriginDependencies": false,
+    "experimentalSingleTabRunMode": false,
+    "experimentalWebKitSupport": false,
+    "visibilityStrategy": "modern",
+    "fileServerFolder": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes",
+    "fixturesFolder": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\cypress\\fixtures",
+    "forceHttp1": false,
+    "excludeSpecPattern": "*.hot-update.js",
+    "includeShadowDom": false,
+    "justInTimeCompile": true,
+    "keystrokeDelay": null,
+    "manageBrowserMemory": true,
+    "modifyObstructiveCode": true,
+    "numTestsKeptInMemory": 0,
+    "platform": "win32",
+    "pageLoadTimeout": 60000,
+    "port": 60598,
+    "projectId": null,
+    "redirectionLimit": 20,
+    "removeSRIAttributes": false,
+    "reporter": "spec",
+    "reporterOptions": null,
+    "requestTimeout": 5000,
+    "resolvedNodePath": "C:\\Users\\cjosu\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+    "resolvedNodeVersion": "24.22.1",
+    "responseTimeout": 30000,
+    "retries": {
+      "runMode": 0,
+      "openMode": 0
+    },
+    "slowTestThreshold": 10000,
+    "scrollBehavior": "top",
+    "taskTimeout": 60000,
+    "testIsolation": true,
+    "trashAssetsBeforeRuns": true,
+    "trustedCertificates": [],
+    "userAgent": null,
+    "videoCompression": false,
+    "videosFolder": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\cypress\\videos",
+    "waitForAnimations": true,
+    "watchForFileChanges": false,
+    "browsers": [
+      {
+        "channel": "stable",
+        "displayName": "Chrome",
+        "family": "chromium",
+        "majorVersion": "155",
+        "name": "chrome",
+        "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "version": "155.0.8059.86"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Edge",
+        "family": "chromium",
+        "majorVersion": "156",
+        "name": "edge",
+        "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "version": "156.0.4314.42"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Electron",
+        "family": "chromium",
+        "majorVersion": 146,
+        "name": "electron",
+        "path": "",
+        "version": "146.0.7680.216"
+      }
+    ],
+    "cypressBinaryRoot": "C:\\Users\\cjosu\\AppData\\Local\\Cypress\\Cache\\16.2.0\\Cypress\\resources\\app",
+    "hosts": null,
+    "isInteractive": false,
+    "version": "16.2.0",
+    "testingType": "e2e",
+    "browser": null,
+    "cypressInternalEnv": "production"
+  },
+  "cypressVersion": "16.2.0",
+  "endedTestsAt": "2026-10-27T20:18:59.220Z",
+  "osName": "win32",
+  "osVersion": "Microsoft Windows 11 Home - 10.0.26200",
+  "runs": [
+    {
+      "error": null,
+      "reporter": "spec",
+      "reporterStats": {
+        "suites": 1,
+        "tests": 4,
+        "passes": 3,
+        "pending": 0,
+        "failures": 2,
+        "start": "2026-10-27T20:18:55.110Z",
+        "end": "2026-10-27T20:18:59.227Z",
+        "duration": 4117
+      },
+      "screenshots": [
+        {
+          "height": 622,
+          "name": "CY01-disponibilidad",
+          "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\CY01-disponibilidad.png",
+          "takenAt": "2026-10-27T20:18:56.047Z",
+          "width": 1258
+        },
+        {
+          "height": 622,
+          "name": "CY03-confirmacion",
+          "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\CY03-confirmacion.png",
+          "takenAt": "2026-10-27T20:18:57.983Z",
+          "width": 1258
+        },
+        {
+          "height": 622,
+          "name": null,
+          "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\Aceptación BDD Hotel Andes -- CY04 Dada una reserva cuando cancelo entonces se muestra cancelada -- before each hook (failed).png",
+          "takenAt": "2026-10-27T20:18:58.386Z",
+          "width": 1258
+        },
+        {
+          "height": 622,
+          "name": null,
+          "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\Aceptación BDD Hotel Andes -- CY04 Dada una reserva cuando cancelo entonces se muestra cancelada -- after each hook (failed).png",
+          "takenAt": "2026-10-27T20:18:59.127Z",
+          "width": 1258
+        }
+      ],
+      "spec": {
+        "absolute": "C:/Users/cjosu/Documents/Codex/2026-10-12/ne/sites/hotel-andes/tests/cypress/reservas.cy.cjs",
+        "fileExtension": ".cjs",
+        "fileName": "reservas",
+        "name": "reservas.cy.cjs",
+        "relative": "tests\\cypress\\reservas.cy.cjs"
+      },
+      "stats": {
+        "duration": 4115,
+        "endedAt": "2026-10-27T20:18:59.220Z",
+        "failures": 1,
+        "passes": 3,
+        "pending": 0,
+        "skipped": 2,
+        "startedAt": "2026-10-27T20:18:55.105Z",
+        "suites": 1,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1195,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY01 Dadas fechas válidas cuando busco entonces veo disponibilidad"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 684,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY02 Dados cuatro huéspedes cuando busco entonces solo ofrece familiar"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1361,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY03 Dados datos válidos cuando confirmo entonces obtengo código y total"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "failed"
+            }
+          ],
+          "displayError": "CypressError: `cy.request()` failed trying to load:\n\nhttp://127.0.0.1:5173/api/reservations\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ECONNREFUSED 127.0.0.1:5173\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: http://127.0.0.1:5173/api/reservations\n\n-----------------------------------------------------------\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nhttps://on.cypress.io/request\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Aceptación BDD Hotel Andes`\n    at <unknown> (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:143262:70)\n    at tryCatcher (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1780:23)\n    at <unknown> (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:4176:37)\n    at tryCatcher (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1780:23)\n    at Promise._settlePromiseFromHandler (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1492:31)\n    at Promise._settlePromise (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1549:18)\n    at Promise._settlePromise0 (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1594:10)\n    at Promise._settlePromises (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:1670:18)\n    at _drainQueueStep (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:2380:12)\n    at _drainQueue (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:2373:9)\n    at Async._drainQueues (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:2389:5)\n    at Async.drainQueues (http://127.0.0.1:5173/__cypress/runner/cypress_runner.js:2259:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://site-creator-vinext-starter/./tests/cypress/reservas.cy.cjs:16:0)\n\nFrom Node.js Internals:\n  RequestError: Error: connect ECONNREFUSED 127.0.0.1:5173\n      at new l (<embedded>:275:86324)\n      at ee.callback (<embedded>:275:92325)\n      at e.callback.s.callback [as _callback] (<embedded>:275:91771)\n      at s._callback.s.callback.s.callback (<embedded>:338:99326)\n      at ee.emit (node:events:509:28)\n      at ee.onRequestError (<embedded>:338:108268)\n      at ClientRequest.emit (node:events:521:24)\n      at emitErrorEvent (node:_http_client:109:11)\n      at Socket.socketErrorListener (node:_http_client:593:5)\n      at Socket.emit (node:events:509:28)\n      at emitErrorNT (node:internal/streams/destroy:170:8)\n      at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n      at process.processTicksAndRejections (node:internal/process/task_queues:90:21)",
+          "duration": 834,
+          "state": "failed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY04 Dada una reserva cuando cancelo entonces se muestra cancelada"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "skipped"
+            }
+          ],
+          "displayError": null,
+          "duration": 0,
+          "state": "skipped",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY05 Dado correo inválido cuando envío entonces el servidor lo rechaza"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "skipped"
+            }
+          ],
+          "displayError": null,
+          "duration": 0,
+          "state": "skipped",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY06 Dada salida igual a llegada cuando consulto entonces se rechaza"
+          ]
+        }
+      ],
+      "video": null
+    }
+  ],
+  "startedTestsAt": "2026-10-27T20:18:55.105Z",
+  "totalDuration": 4115,
+  "totalFailed": 1,
+  "totalPassed": 3,
+  "totalPending": 0,
+  "totalSkipped": 2,
+  "totalSuites": 1,
+  "totalTests": 6
+}

@@ -1,0 +1,12 @@
+﻿Criterio,Historia,Prioridad,Pasos,Resultado esperado y comprobado,Pruebas,Estado,Fecha
+CA01,HU01 HU02,Alta,Consultar fechas futuras y reservar Andina con nombre y correo válidos,Disponibilidad visible y reserva 201 con código AND,CY01 CY03; API grupo 2,Aprobado local,2026-10-27
+CA02,HU01,Alta,Consultar salida igual o anterior a llegada y fechas imposibles,Rechazo de fechas inválidas con estado 400 en API,CY06; unitarias 2 y 3; API grupo 1,Aprobado local,2026-10-27
+CA03,HU03,Crítica,Ocupar las dos unidades familiares y solicitar otra en el mismo intervalo,Reserva adicional rechazada con 409; disponibilidad 0,API grupo 3,Aprobado local,2026-10-27
+CA04,HU03,Crítica,Ocupar una familiar y enviar 12 solicitudes simultáneas por la unidad restante,Exactamente 1 creación y 11 respuestas 409,API grupo 3,Aprobado local,2026-10-27
+CA05,HU01,Alta,Seleccionar 4 huéspedes; probar valores fuera de 1 a 4 en reglas,Solo familiar en interfaz y rechazo de capacidad o huéspedes inválidos,CY02; unitaria 5; API grupo 1,Aprobado local,2026-10-27
+CA06,HU02,Alta,Enviar total y tarifa adulterados como 1 por 3 noches familiares,El servidor conserva tarifa 840 y total 2520,API grupo 2,Aprobado local,2026-10-27
+CA07,HU02,Alta,Reenviar la misma reserva con la misma clave de idempotencia,Respuesta 200 y mismo identificador; sin otra reserva,API grupo 2,Aprobado local,2026-10-27
+CA08,HU04,Alta,Usar otra cookie para listar o cancelar la reserva de un visitante,La lista no la incluye y la cancelación devuelve 404,API grupo 4,Aprobado local,2026-10-27
+CA09,HU04,Alta,Cancelar una reserva confirmada y consultar disponibilidad,Estado cancelado y unidad nuevamente disponible,CY04; API grupo 6,Aprobado local,2026-10-27
+CA10,HU05,Media,Confirmar y descargar el comprobante TXT,Archivo con el código de confirmación y aviso de demostración,CY03,Aprobado local,2026-10-27
+CA11,HU06,Media,Emular 390 por 844 y abrir y cerrar menú móvil,Sin desborde horizontal; aria-expanded cambia correctamente,SE04,Aprobado local,2026-10-27

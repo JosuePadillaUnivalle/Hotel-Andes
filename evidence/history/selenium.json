@@ -1,0 +1,35 @@
+{
+  "startedAt": "2026-10-27T20:17:18.703Z",
+  "finishedAt": "2026-10-27T20:17:21.201Z",
+  "browser": "chrome",
+  "version": "155.0.8059.86",
+  "results": [
+    {
+      "id": "SE01",
+      "title": "Catálogo presenta tres habitaciones y precios",
+      "status": "passed",
+      "durationMs": 28
+    },
+    {
+      "id": "SE02",
+      "title": "Detalle accesible y cierre con tecla Escape",
+      "status": "failed",
+      "error": "The expression evaluated to a falsy value:\n\n  assert((await dialog.getText()).includes('Suite Panorámica'))\n",
+      "durationMs": 56
+    },
+    {
+      "id": "SE03",
+      "title": "Filtro En familia muestra solo habitación familiar",
+      "status": "failed",
+      "error": "element click intercepted: Element <button class=\"\" aria-pressed=\"false\">...</button> is not clickable at point (1286, 538). Other element would receive the click: <dialog class=\"dialog dialog-wide\" aria-label=\"Detalles de Suite Panorámica\" open=\"\">...</dialog>\n  (Session info: chrome=155.0.8059.86)",
+      "durationMs": 1018
+    },
+    {
+      "id": "SE04",
+      "title": "Vista móvil sin desborde y menú operable",
+      "status": "failed",
+      "error": "The expression evaluated to a falsy value:\n\n  assert(dims.viewport<=500)\n",
+      "durationMs": 371
+    }
+  ]
+}

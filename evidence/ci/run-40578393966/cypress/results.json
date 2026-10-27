@@ -1,0 +1,285 @@
+{
+  "browserName": "chrome",
+  "browserPath": "google-chrome",
+  "browserVersion": "155.0.8059.39",
+  "config": {
+    "video": false,
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "/home/runner/work/Hotel-Andes/Hotel-Andes/evidence/cypress/screenshots",
+    "downloadsFolder": "/home/runner/work/Hotel-Andes/Hotel-Andes/evidence/cypress/downloads",
+    "viewportWidth": 1440,
+    "viewportHeight": 1000,
+    "baseUrl": "http://127.0.0.1:5173",
+    "supportFile": false,
+    "specPattern": "tests/cypress/**/*.cy.cjs",
+    "projectRoot": "/home/runner/work/Hotel-Andes/Hotel-Andes",
+    "projectName": "Hotel-Andes",
+    "configFile": "cypress.config.cjs",
+    "isTextTerminal": true,
+    "animationDistanceThreshold": 5,
+    "arch": "x64",
+    "blockHosts": null,
+    "chromeWebSecurity": true,
+    "clientCertificates": [],
+    "defaultBrowser": null,
+    "defaultCommandTimeout": 4000,
+    "env": {},
+    "expose": {},
+    "experimentalCspAllowList": false,
+    "experimentalInteractiveRunEvents": false,
+    "experimentalRunAllSpecs": false,
+    "experimentalModifyObstructiveThirdPartyCode": false,
+    "injectDocumentDomain": false,
+    "experimentalOriginDependencies": false,
+    "experimentalSingleTabRunMode": false,
+    "experimentalWebKitSupport": false,
+    "visibilityStrategy": "modern",
+    "fileServerFolder": "/home/runner/work/Hotel-Andes/Hotel-Andes",
+    "fixturesFolder": "/home/runner/work/Hotel-Andes/Hotel-Andes/cypress/fixtures",
+    "forceHttp1": false,
+    "excludeSpecPattern": "*.hot-update.js",
+    "includeShadowDom": false,
+    "justInTimeCompile": true,
+    "keystrokeDelay": null,
+    "manageBrowserMemory": true,
+    "modifyObstructiveCode": true,
+    "numTestsKeptInMemory": 0,
+    "platform": "linux",
+    "pageLoadTimeout": 60000,
+    "port": 42611,
+    "projectId": null,
+    "redirectionLimit": 20,
+    "removeSRIAttributes": false,
+    "reporter": "spec",
+    "reporterOptions": null,
+    "requestTimeout": 5000,
+    "resolvedNodePath": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+    "resolvedNodeVersion": "24.21.0",
+    "responseTimeout": 30000,
+    "retries": {
+      "runMode": 0,
+      "openMode": 0
+    },
+    "slowTestThreshold": 10000,
+    "scrollBehavior": "top",
+    "taskTimeout": 60000,
+    "testIsolation": true,
+    "trashAssetsBeforeRuns": true,
+    "trustedCertificates": [],
+    "userAgent": null,
+    "videoCompression": false,
+    "videosFolder": "/home/runner/work/Hotel-Andes/Hotel-Andes/cypress/videos",
+    "waitForAnimations": true,
+    "watchForFileChanges": false,
+    "browsers": [
+      {
+        "channel": "stable",
+        "displayName": "Chrome",
+        "family": "chromium",
+        "majorVersion": "155",
+        "name": "chrome",
+        "path": "google-chrome",
+        "version": "155.0.8059.39"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Chromium",
+        "family": "chromium",
+        "majorVersion": "155",
+        "name": "chromium",
+        "path": "chromium-browser",
+        "version": "155.0.8059.0"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Firefox",
+        "family": "firefox",
+        "majorVersion": "157",
+        "name": "firefox",
+        "path": "firefox",
+        "version": "157.0"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Edge",
+        "family": "chromium",
+        "majorVersion": "155",
+        "name": "edge",
+        "path": "microsoft-edge",
+        "version": "155.0.4283.45"
+      },
+      {
+        "channel": "stable",
+        "displayName": "Electron",
+        "family": "chromium",
+        "majorVersion": 146,
+        "name": "electron",
+        "path": "",
+        "version": "146.0.7680.216"
+      }
+    ],
+    "cypressBinaryRoot": "/home/runner/.cache/Cypress/16.2.0/Cypress/resources/app",
+    "hosts": null,
+    "isInteractive": false,
+    "version": "16.2.0",
+    "testingType": "e2e",
+    "browser": null,
+    "cypressInternalEnv": "production"
+  },
+  "cypressVersion": "16.2.0",
+  "endedTestsAt": "2026-10-27T20:29:47.366Z",
+  "osName": "linux",
+  "osVersion": "Ubuntu - 24.04.5 LTS",
+  "runs": [
+    {
+      "error": null,
+      "reporter": "spec",
+      "reporterStats": {
+        "suites": 1,
+        "tests": 6,
+        "passes": 5,
+        "pending": 0,
+        "failures": 1,
+        "start": "2026-10-27T20:29:38.681Z",
+        "end": "2026-10-27T20:29:47.369Z",
+        "duration": 8688
+      },
+      "screenshots": [
+        {
+          "height": 633,
+          "name": "CY01-disponibilidad",
+          "path": "/home/runner/work/Hotel-Andes/Hotel-Andes/evidence/cypress/screenshots/reservas.cy.cjs/CY01-disponibilidad.png",
+          "takenAt": "2026-10-27T20:29:39.570Z",
+          "width": 1280
+        },
+        {
+          "height": 633,
+          "name": "CY03-confirmacion",
+          "path": "/home/runner/work/Hotel-Andes/Hotel-Andes/evidence/cypress/screenshots/reservas.cy.cjs/CY03-confirmacion.png",
+          "takenAt": "2026-10-27T20:29:42.024Z",
+          "width": 1280
+        },
+        {
+          "height": 633,
+          "name": null,
+          "path": "/home/runner/work/Hotel-Andes/Hotel-Andes/evidence/cypress/screenshots/reservas.cy.cjs/Aceptación BDD Hotel Andes -- CY04 Dada una reserva cuando cancelo entonces se muestra cancelada (failed).png",
+          "takenAt": "2026-10-27T20:29:46.739Z",
+          "width": 1280
+        }
+      ],
+      "spec": {
+        "absolute": "/home/runner/work/Hotel-Andes/Hotel-Andes/tests/cypress/reservas.cy.cjs",
+        "fileExtension": ".cjs",
+        "fileName": "reservas",
+        "name": "reservas.cy.cjs",
+        "relative": "tests/cypress/reservas.cy.cjs"
+      },
+      "stats": {
+        "duration": 8692,
+        "endedAt": "2026-10-27T20:29:47.366Z",
+        "failures": 1,
+        "passes": 5,
+        "pending": 0,
+        "skipped": 0,
+        "startedAt": "2026-10-27T20:29:38.674Z",
+        "suites": 1,
+        "tests": 6
+      },
+      "tests": [
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1249,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY01 Dadas fechas válidas cuando busco entonces veo disponibilidad"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1017,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY02 Dados cuatro huéspedes cuando busco entonces solo ofrece familiar"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 1506,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY03 Dados datos válidos cuando confirmo entonces obtengo código y total"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "failed"
+            }
+          ],
+          "displayError": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Cancelar reserva' within the selector: 'button' but never did.\n    at Context.eval (webpack://site-creator-vinext-starter/./tests/cypress/reservas.cy.cjs:52:0)",
+          "duration": 4537,
+          "state": "failed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY04 Dada una reserva cuando cancelo entonces se muestra cancelada"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 189,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY05 Dado correo inválido cuando envío entonces el servidor lo rechaza"
+          ]
+        },
+        {
+          "attempts": [
+            {
+              "state": "passed"
+            }
+          ],
+          "displayError": null,
+          "duration": 154,
+          "state": "passed",
+          "title": [
+            "Aceptación BDD Hotel Andes",
+            "CY06 Dada salida igual a llegada cuando consulto entonces se rechaza"
+          ]
+        }
+      ],
+      "video": null
+    }
+  ],
+  "startedTestsAt": "2026-10-27T20:29:38.674Z",
+  "totalDuration": 8692,
+  "totalFailed": 1,
+  "totalPassed": 5,
+  "totalPending": 0,
+  "totalSkipped": 0,
+  "totalSuites": 1,
+  "totalTests": 6
+}

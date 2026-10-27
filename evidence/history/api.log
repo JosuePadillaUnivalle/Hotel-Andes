@@ -1,0 +1,20 @@
+PASS: validación de fechas, correo, capacidad y origen
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"error":"Your worker restarted mid-request. Please try sending the request again. Only GET or HEAD requests are retried automatically."}
+
+503 !== 201
+
+    at file:///C:/Users/cjosu/Documents/Codex/2026-10-12/ne/sites/hotel-andes/tests/api.test.mjs:26:10
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 503,
+  expected: 201,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
