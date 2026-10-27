@@ -1,0 +1,69 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.2.0                                                                         │
+  │ Browser:        Chrome 155 (headless)                                                          │
+  │ Node Version:   v24.22.1 (C:\Users\cjosu\.cache\codex-runtimes\codex-primary-runtime\dependenc │
+  │                 ies\node\bin\node.exe)                                                         │
+  │ Specs:          1 found (reservas.cy.cjs)                                                      │
+  │ Searched:       tests/cypress/**/*.cy.cjs                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  reservas.cy.cjs                                                                 (1 of 1)
+
+
+  Aceptación BDD Hotel Andes
+    √ CY01 Dadas fechas válidas cuando busco entonces veo disponibilidad (1161ms)
+    √ CY02 Dados cuatro huéspedes cuando busco entonces solo ofrece familiar (713ms)
+    √ CY03 Dados datos válidos cuando confirmo entonces obtengo código y total (1373ms)
+    √ CY04 Dada una reserva cuando cancelo entonces se muestra cancelada (644ms)
+    √ CY05 Dado correo inválido cuando envío entonces el servidor lo rechaza (128ms)
+    √ CY06 Dada salida igual a llegada cuando consulto entonces se rechaza (140ms)
+
+
+  6 passing (4s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     reservas.cy.cjs                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\cjosu\Documents\Codex\2026-10-12\ne\sites\hotel-andes\evidence\cypress\     (1258x622)
+     screenshots\reservas.cy.cjs\CY01-disponibilidad.png                                            
+  -  C:\Users\cjosu\Documents\Codex\2026-10-12\ne\sites\hotel-andes\evidence\cypress\     (1258x622)
+     screenshots\reservas.cy.cjs\CY03-confirmacion.png                                              
+  -  C:\Users\cjosu\Documents\Codex\2026-10-12\ne\sites\hotel-andes\evidence\cypress\     (1258x622)
+     screenshots\reservas.cy.cjs\CY04-cancelacion.png                                               
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  reservas.cy.cjs                          00:04        6        6        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        00:04        6        6        -        -        -  
+

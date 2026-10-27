@@ -1,0 +1,16 @@
+✔ fechas válidas y dos noches (1.5389ms)
+✔ salida igual o anterior a la llegada (0.1963ms)
+✔ rechaza fechas imposibles (0.1104ms)
+✔ rechaza fechas pasadas (0.0814ms)
+✔ limita huéspedes a enteros de 1 a 4 (0.1578ms)
+✔ máximo de 30 noches (0.0989ms)
+✔ máximo de un año de anticipación (0.075ms)
+✔ año bisiesto y cambios de mes (0.0647ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3364.9981

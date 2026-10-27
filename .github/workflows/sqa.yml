@@ -1,0 +1,48 @@
+name: SQA Hotel Andes
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['docs/**', 'evidence/**', 'README.md']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  calidad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Reglas y tipos
+        run: |
+          mkdir -p evidence/node
+          npm run test:types 2>&1 | tee evidence/types.log
+          npm run test:unit 2>&1 | tee evidence/node/unit.log
+      - name: Compilar y preparar base local
+        run: |
+          npm run build 2>&1 | tee evidence/build.log
+          node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_unknown_landau.sql
+      - name: API y aceptación en Chrome
+        run: |
+          npm start -- --port 5173 > evidence/server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          node scripts/wait-for-local.mjs
+          npm run test:api 2>&1 | tee evidence/node/api.log
+          npm run test:cypress 2>&1 | tee evidence/cypress-run.log
+          npm run test:selenium 2>&1 | tee evidence/selenium-run.log
+      - name: Conservar evidencia de la ejecución
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencia-sqa-${{ github.run_number }}
+          path: |
+            evidence/**/*.log
+            evidence/**/*.json
+            evidence/**/*.png
+          retention-days: 30

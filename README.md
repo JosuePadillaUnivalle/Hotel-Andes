@@ -1,5 +1,31 @@
 # Hotel Andes
 
+[![SQA Hotel Andes](https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/workflows/sqa.yml/badge.svg)](https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/workflows/sqa.yml)
+
+## Plan SQA y evidencias
+
+- [Plan de pruebas ágil](docs/sqa/PLAN.md)
+- [Auditoría interna y acciones correctivas](docs/sqa/AUDITORIA.md)
+- [Tablero Scrum y SQA en Trello](https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa) (privado)
+- [Evidencia de ejecución](evidence/)
+- [Integración continua](.github/workflows/sqa.yml)
+
+Las herramientas de aceptación son Cypress 16.2.0 y Selenium WebDriver 4.51.0, en Chrome. Se complementan con pruebas unitarias y de API mediante Node.js. Recomendado: Node.js 24 y Google Chrome instalado.
+
+Con el servidor local iniciado en 127.0.0.1:5173:
+
+```sh
+npm run test:types
+npm run test:unit
+npm run test:api
+npm run test:cypress
+npm run test:selenium
+```
+
+Las pruebas crean datos ficticios en la base local; no ejecutarlas sobre reservas reales. Cypress cancela las reservas activas de su visitante aislado y API cancela los registros que crea. Los reportes se regeneran en `evidence/`. El flujo de GitHub Actions prepara su propia base efímera y conserva un artefacto con los resultados. El flujo valida el código; el despliegue del sitio es independiente.
+
+Wrangler se actualizó a 4.154.0 para corregir fallos reproducidos en la vista previa local. La compilación elimina `legacy_env` de la configuración generada por Vinext, porque esta versión de Wrangler retiró ese campo. No se altera el inventario ni la lógica de reservas.
+
 Prototipo académico de una web de reservas hoteleras, basado en el caso del trabajo de Agile Testing.
 
 Integrantes: Josue Padilla, Santiago Roca y Karen Caral.

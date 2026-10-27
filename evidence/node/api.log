@@ -1,0 +1,6 @@
+PASS: validación de fechas, correo, capacidad y origen
+PASS: creación, precio calculado en servidor e idempotencia
+PASS: 12 solicitudes concurrentes respetan la capacidad sin sobreventa
+PASS: aislamiento de reservas entre visitantes
+PASS: salida y llegada contiguas no se superponen
+PASS: cancelar libera la habitación

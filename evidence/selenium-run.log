@@ -1,0 +1,4 @@
+PASS SE01: Catálogo presenta tres habitaciones y precios
+PASS SE02: Detalle accesible y cierre con tecla Escape
+PASS SE03: Filtro En familia muestra solo habitación familiar
+PASS SE04: Vista móvil sin desborde y menú operable
