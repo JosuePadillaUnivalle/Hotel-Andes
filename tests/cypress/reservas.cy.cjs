@@ -10,7 +10,11 @@ function search() {
   cy.get('.search-result').should('contain', 'Disponibilidad para');
 }
 describe('Aceptación BDD Hotel Andes', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => {
+    cy.intercept('GET', '/api/reservations').as('initialReservations');
+    cy.visit('/');
+    cy.wait('@initialReservations').its('response.statusCode').should('eq',200);
+  });
   afterEach(() => {
     // Cancela únicamente las reservas del visitante aislado de esta prueba.
     cy.request('/api/reservations').then(({ body }) => {
@@ -44,11 +48,12 @@ describe('Aceptación BDD Hotel Andes', () => {
     });
   });
   it('CY04 Dada una reserva cuando cancelo entonces se muestra cancelada', () => {
-    cy.request('POST', '/api/reservations', {
-      ...dates, guests: 2, roomType: 'andina', guestName: 'Cancelacion Cypress',
-      email: 'cancelar@example.test', idempotencyKey: crypto.randomUUID(),
-    }).its('status').should('eq', 201);
-    cy.get('.header .my-reservations').click();
+    search(); cy.get('[aria-label="Reservar Habitación Andina"]').click();
+    cy.get('[name="guestName"]').type('Cancelacion Cypress');
+    cy.get('[name="email"]').type('cancelar@example.test');
+    cy.contains('button', 'Confirmar reserva').click();
+    cy.get('[aria-label="Reserva confirmada"]').should('be.visible');
+    cy.contains('button','Ver mis reservas').click();
     cy.contains('button', 'Cancelar reserva').click();
     cy.contains('button', 'Sí, cancelar').click();
     cy.get('.status-label').should('contain', 'Cancelada');

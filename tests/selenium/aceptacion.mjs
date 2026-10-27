@@ -9,11 +9,20 @@ const options = new chrome.Options().addArguments('--headless=new', '--window-si
 const driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 const startedAt = new Date().toISOString();
 const results = [];
+async function clickVisible(by) {
+  const el=await driver.findElement(by);
+  await driver.executeScript("arguments[0].scrollIntoView({behavior:'instant',block:'center'})",el);
+  await driver.wait(async()=>await driver.executeScript(`const r=arguments[0].getBoundingClientRect();
+    const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+    return !!hit && (hit===arguments[0] || arguments[0].contains(hit));`,el),10000);
+  await el.click();
+}
 async function run(id, title, task) {
   const start = Date.now();
   try {
     await driver.get(base);
     await driver.wait(until.elementLocated(By.css('.room-card')), 20000);
+    await driver.executeScript('return document.fonts.ready.then(()=>true)');
     await task(); results.push({id, title, status:'passed', durationMs:Date.now()-start}); console.log(`PASS ${id}: ${title}`);
   }
   catch (err) { results.push({id, title, status:'failed', error:err.message, durationMs:Date.now()-start}); console.error(`FAIL ${id}: ${err.message}`); }
@@ -29,14 +38,14 @@ try {
     for (const name of ['Habitación Andina','Suite Panorámica','Refugio Familiar','520','680','840']) assert(text.includes(name));
   });
   await run('SE02', 'Detalle accesible y cierre con tecla Escape', async () => {
-    await driver.findElement(By.css('[aria-label="Ver detalles de Suite Panorámica"]')).click();
+    await clickVisible(By.css('[aria-label="Ver detalles de Suite Panorámica"]'));
     const dialog=await driver.wait(until.elementLocated(By.css('dialog[open]')),10000);
     await driver.wait(until.elementTextContains(dialog, 'Suite Panorámica'),10000);
     await driver.actions().sendKeys(Key.ESCAPE).perform();
     await driver.wait(async()=> (await driver.findElements(By.css('dialog[open]'))).length===0,10000);
   });
   await run('SE03', 'Filtro En familia muestra solo habitación familiar', async () => {
-    await driver.findElement(By.xpath('//button[normalize-space()="En familia"]')).click();
+    await clickVisible(By.xpath('//button[normalize-space()="En familia"]'));
     await driver.wait(async()=> (await driver.findElements(By.css('.room-card'))).length===1,10000);
     assert((await driver.findElement(By.css('.room-card')).getText()).includes('Refugio Familiar'));
   });
