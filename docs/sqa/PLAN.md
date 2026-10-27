@@ -81,7 +81,7 @@ BDD utiliza ejemplos de comportamiento para acordar qué debe hacer el producto.
 
 ## Integración continua y entrega
 
-GitHub Actions instala dependencias desde el lockfile, comprueba tipos, ejecuta unitarias, compila, crea una base D1 local efímera y ejecuta API, Cypress y Selenium. Un fallo detiene la validación y los logs se conservan como artefacto durante 30 días. El flujo se activa en cambios de código en main, en pull requests o manualmente.
+GitHub Actions instala dependencias desde el lockfile, comprueba tipos, ejecuta unitarias, compila, crea una base D1 local efímera y ejecuta API, Cypress y Selenium. Bash con pipefail transmite los errores aunque se guarden logs con tee; además se comprueban los conteos JSON. Los artefactos se conservan 30 días. El flujo se activa en cambios de código en main, en pull requests o manualmente.
 
 La publicación del sitio privado se gestiona por separado. Este flujo incorpora CI; no publica automáticamente ni modifica la base del sitio alojado. La entrega requiere una ejecución correcta y revisión del equipo.
 
@@ -162,7 +162,7 @@ El corte local del 27 de octubre se basa en los archivos de resultados conservad
 
 ## Interpretación y límites
 
-La tasa de fallo local es 0 % en las ejecuciones finales de cada suite. Los primeros intentos revelaron problemas de entorno y de sincronización del script; su tratamiento se describe en la auditoría. El 100 % se refiere exclusivamente a los criterios definidos y al alcance probado.
+La tasa de fallo local es 0 % en las ejecuciones finales de cada suite. Los intentos iniciales revelaron problemas de entorno, sincronización y propagación de errores en CI; se documentan en la auditoría. El 100 % se refiere exclusivamente a los criterios definidos y al alcance probado. La aprobación remota exige tanto éxito del flujo como resultados correctos en sus archivos JSON.
 
 La cobertura de aceptación no es cobertura de líneas de código. La cobertura de código y la densidad de defectos por KLOC requieren instrumentación y un conteo estable; se incorporan como mejora. No se calcula velocidad del equipo porque aún falta un histórico de puntos planificados y aceptados por sprint.
 
@@ -197,7 +197,7 @@ Repositorio: https://github.com/JosuePadillaUnivalle/Hotel-Andes
 
 Tablero privado: https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa
 
-Ejecución de CI: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966
+Ejecución de CI: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691
 
 ## Referencias
 

@@ -46,7 +46,7 @@
     "numTestsKeptInMemory": 0,
     "platform": "win32",
     "pageLoadTimeout": 60000,
-    "port": 60052,
+    "port": 57040,
     "projectId": null,
     "redirectionLimit": 20,
     "removeSRIAttributes": false,
@@ -109,7 +109,7 @@
     "cypressInternalEnv": "production"
   },
   "cypressVersion": "16.2.0",
-  "endedTestsAt": "2026-10-27T20:26:51.668Z",
+  "endedTestsAt": "2026-10-27T20:38:08.967Z",
   "osName": "win32",
   "osVersion": "Microsoft Windows 11 Home - 10.0.26200",
   "runs": [
@@ -122,30 +122,30 @@
         "passes": 6,
         "pending": 0,
         "failures": 0,
-        "start": "2026-10-27T20:26:47.330Z",
-        "end": "2026-10-27T20:26:51.669Z",
-        "duration": 4339
+        "start": "2026-10-27T20:38:03.950Z",
+        "end": "2026-10-27T20:38:08.969Z",
+        "duration": 5019
       },
       "screenshots": [
         {
           "height": 622,
           "name": "CY01-disponibilidad",
           "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\CY01-disponibilidad.png",
-          "takenAt": "2026-10-27T20:26:48.257Z",
+          "takenAt": "2026-10-27T20:38:04.823Z",
           "width": 1258
         },
         {
           "height": 622,
           "name": "CY03-confirmacion",
           "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\CY03-confirmacion.png",
-          "takenAt": "2026-10-27T20:26:50.305Z",
+          "takenAt": "2026-10-27T20:38:06.876Z",
           "width": 1258
         },
         {
           "height": 622,
           "name": "CY04-cancelacion",
           "path": "C:\\Users\\cjosu\\Documents\\Codex\\2026-10-12\\ne\\sites\\hotel-andes\\evidence\\cypress\\screenshots\\reservas.cy.cjs\\CY04-cancelacion.png",
-          "takenAt": "2026-10-27T20:26:51.098Z",
+          "takenAt": "2026-10-27T20:38:08.482Z",
           "width": 1258
         }
       ],
@@ -157,13 +157,13 @@
         "relative": "tests\\cypress\\reservas.cy.cjs"
       },
       "stats": {
-        "duration": 4343,
-        "endedAt": "2026-10-27T20:26:51.668Z",
+        "duration": 5020,
+        "endedAt": "2026-10-27T20:38:08.967Z",
         "failures": 0,
         "passes": 6,
         "pending": 0,
         "skipped": 0,
-        "startedAt": "2026-10-27T20:26:47.325Z",
+        "startedAt": "2026-10-27T20:38:03.947Z",
         "suites": 1,
         "tests": 6
       },
@@ -175,7 +175,7 @@
             }
           ],
           "displayError": null,
-          "duration": 1184,
+          "duration": 1116,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -189,7 +189,7 @@
             }
           ],
           "displayError": null,
-          "duration": 740,
+          "duration": 729,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -203,7 +203,7 @@
             }
           ],
           "displayError": null,
-          "duration": 1425,
+          "duration": 1391,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -217,7 +217,7 @@
             }
           ],
           "displayError": null,
-          "duration": 669,
+          "duration": 1473,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -231,7 +231,7 @@
             }
           ],
           "displayError": null,
-          "duration": 145,
+          "duration": 133,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -245,7 +245,7 @@
             }
           ],
           "displayError": null,
-          "duration": 157,
+          "duration": 164,
           "state": "passed",
           "title": [
             "Aceptación BDD Hotel Andes",
@@ -256,8 +256,8 @@
       "video": null
     }
   ],
-  "startedTestsAt": "2026-10-27T20:26:47.325Z",
-  "totalDuration": 4343,
+  "startedTestsAt": "2026-10-27T20:38:03.947Z",
+  "totalDuration": 5020,
   "totalFailed": 0,
   "totalPassed": 6,
   "totalPending": 0,

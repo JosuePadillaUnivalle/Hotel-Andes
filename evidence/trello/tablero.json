@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-27T20:34:25.418Z",
+  "capturedAt": "2026-10-27T20:42:03.080Z",
   "url": "https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa",
   "lists": [
     {
@@ -328,13 +328,13 @@
         {
           "id": "ari:cloud:trello::card/workspace/6ae107d8d7819e2b77f4ae65/6ae10900637099cf2ae8c8cb",
           "name": "QA02 Automatización y ejecución continua",
-          "description": "Herramientas exigidas: Cypress 16.2.0 y Selenium WebDriver 4.51.0. Complemento Node test para reglas y API.\nEjecutar en local y en GitHub Actions con base de prueba local. Conservar reportes y capturas.\nCI/CD: integración continua automática; publicación privada existente fuera de este flujo. No se automatiza el despliegue.\nhttps://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/.github/workflows/sqa.yml\n\nVerificación remota: GitHub Actions aprobada el 27/10/2026, con unitarias, API, Cypress y Selenium. Registro y artefacto:\nhttps://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966",
+          "description": "Herramientas: Cypress 16.2.0 y Selenium WebDriver 4.51.0; complemento Node test.\nVerificación local y remota del 27/10/2026: unitarias 8/8, API 6/6 grupos, Cypress 6/6 y Selenium 4/4. Reportes JSON finales comprobados.\nCI con Bash pipefail y verificación explícita de los conteos. Un fallo detiene el flujo.\nLas ejecuciones iniciales revelaron códigos de salida ocultos por tee y diferencias de portabilidad; se documentan en A07 y A08. El primer estado verde no constituye aprobación de las suites.\nEjecución final válida: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691\nConfiguración: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/.github/workflows/sqa.yml\nEl flujo valida código y no despliega el sitio.",
           "url": "https://trello.com/c/cSiCRQz8/8-qa02-automatizaci%C3%B3n-y-ejecuci%C3%B3n-continua",
           "shortUrl": "https://trello.com/c/cSiCRQz8",
           "closed": false,
           "complete": false,
           "position": 140737488453632,
-          "lastActivityAt": "2026-10-27T20:34:23.366Z",
+          "lastActivityAt": "2026-10-27T20:41:13.523Z",
           "startedAt": null,
           "due": {
             "date": null,
@@ -362,6 +362,33 @@
           "complete": false,
           "position": 140737488470016,
           "lastActivityAt": "2026-10-27T20:33:09.846Z",
+          "startedAt": null,
+          "due": {
+            "date": null,
+            "complete": false
+          },
+          "listId": null,
+          "boardId": null,
+          "labels": [],
+          "labelsHasMore": false,
+          "checklists": [],
+          "checklistsHasMore": false,
+          "members": [],
+          "comments": [],
+          "commentsHasMore": false,
+          "list": null,
+          "board": null
+        },
+        {
+          "id": "ari:cloud:trello::card/workspace/6ae107d8d7819e2b77f4ae65/6ae10c6ae35b2f591a6417c7",
+          "name": "DEF02 Corregir propagación de errores y pruebas en CI",
+          "description": "Hallazgos A07 y A08, 27/10/2026.\nEsperado: CI falla cuando falla cualquier prueba y todos los casos se ejecutan en Chrome Linux.\nObservado en intento inicial 40578393966: GitHub mostraba éxito; reportes reales Cypress 5/6 y Selenium 2/4. tee ocultaba el código de salida.\nCorrección: Bash con pipefail, scripts/verify-ci-results.mjs, espera de identidad inicial, cancelación por interfaz y desplazamiento a elemento visible en Selenium.\nVerificación final: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691\nSe descargó el artefacto y se verificaron los JSON: Cypress 6/6, Selenium 4/4, sin omisiones. API 6/6 y unitarias 8/8.\nHistorial preservado: evidence/ci/run-40578393966/LEEME.md.\nResponsable de seguimiento propuesto: Santiago Roca.",
+          "url": "https://trello.com/c/oCjbC1uA/14-def02-corregir-propagaci%C3%B3n-de-errores-y-pruebas-en-ci",
+          "shortUrl": "https://trello.com/c/oCjbC1uA",
+          "closed": false,
+          "complete": false,
+          "position": 140737488486400,
+          "lastActivityAt": "2026-10-27T20:41:14.786Z",
           "startedAt": null,
           "due": {
             "date": null,

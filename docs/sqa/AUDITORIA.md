@@ -21,6 +21,8 @@ Las pruebas finales locales aprueban las reglas y los recorridos incluidos en el
 | A03 Entorno local | Con Wrangler 4.92 se reprodujeron respuestas 503 y cierre de la vista previa. Actualizar runtime y adaptar configuración generada. | Verificado tras corrección |
 | A04 Sincronización de pruebas | Selenium consultaba texto antes de terminar la apertura del diálogo; el fallo afectaba casos posteriores. Añadir espera explícita y recarga por caso. | 4 de 4 aprobados |
 | A05 Seguimiento y CI | Crear tablero con enlaces de evidencia y configurar integración continua en el repositorio. | Tablero creado; CI aprobada |
+| A07 Códigos de salida | La primera CI mostró éxito aunque Cypress y Selenium fallaron. Activar pipefail y validar los reportes JSON. | Corregido; CI aprobada |
+| A08 Portabilidad | En Linux se detectaron problemas en la preparación de sesión y en clics durante el desplazamiento. Corregir preparación y esperas. | Verificación en ejecución final |
 | A06 Aceptación grupal | Confirmar roles, revisar resultados e invitar al docente si necesita acceso al tablero privado. | Pendiente en QA04 |
 
 ## Acciones correctivas y comprobación
@@ -29,7 +31,9 @@ A03 se atendió con Wrangler 4.154.0 y tipos de Workers compatibles. Vinext emit
 
 El error de entorno se registró por su comportamiento observado. La aprobación de las pruebas posteriores acredita que dejó de reproducirse en la ejecución final, sin atribuir una causa interna no demostrada. Los intentos anteriores se conservaron por separado para el seguimiento de la corrección.
 
-A04 se corrigió esperando explícitamente el texto del diálogo e iniciando cada comprobación desde una página recargada. La prueba móvil emula 390 por 844 píxeles; no depende del ancho mínimo de una ventana de escritorio.
+A04 se corrigió con espera del texto del diálogo y recarga por caso. A08 añade espera de la consulta inicial de reservas en Cypress, cancelación mediante el flujo visible y desplazamiento instantáneo con comprobación de que el elemento recibe el clic en Selenium. La vista móvil emula 390 por 844 píxeles.
+
+A07 detectó que tee ocultaba el fallo de los comandos en CI. El registro 40578393966 mostraba éxito del trabajo, pero sus archivos contenían Cypress 5/6 y Selenium 2/4 aprobados. Se conserva como intento histórico no válido. El flujo corregido utiliza Bash con pipefail y scripts/verify-ci-results.mjs exige Cypress 6/6 y Selenium 4/4 sin omisiones. Estado final comprobado: Aprobada.
 
 | Verificación final local | Resultado | Registro |
 | --- | --- | --- |
@@ -52,7 +56,7 @@ Repositorio: https://github.com/JosuePadillaUnivalle/Hotel-Andes
 
 Tablero: https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa
 
-GitHub Actions: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966
+GitHub Actions: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691
 
 ## Evidencias visuales de aceptación
 

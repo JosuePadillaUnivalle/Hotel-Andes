@@ -1,0 +1,20 @@
+
+> site-creator-vinext-starter@0.1.0 test:unit
+> node --test tests/domain.test.mjs
+
+✔ fechas válidas y dos noches (1.290743ms)
+✔ salida igual o anterior a la llegada (0.326765ms)
+✔ rechaza fechas imposibles (0.147723ms)
+✔ rechaza fechas pasadas (0.155405ms)
+✔ limita huéspedes a enteros de 1 a 4 (0.349308ms)
+✔ máximo de 30 noches (0.182986ms)
+✔ máximo de un año de anticipación (0.171309ms)
+✔ año bisiesto y cambios de mes (0.128885ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.380439

@@ -1,0 +1,228 @@
+
+> site-creator-vinext-starter@0.1.0 start
+> node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0 --port 5173
+
+
+ ⛅️ wrangler 4.154.0
+────────────────────
+Your Worker has access to the following bindings:
+Binding                       Resource         Mode
+env.DB (site-creator-d1)      D1 Database      local
+
+Attaching additional modules:
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬──────┬────────────┐
+│ Name                                                                                                                 │ Type │ Size       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ __vite_rsc_assets_manifest.js                                                                                        │ esm  │ 2.25 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-page-cache-ByM4fsD5.js                                                                              │ esm  │ 5.07 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-page-cache-finalizer-BBFIcV99.js                                                                    │ esm  │ 3.40 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-page-cache-render-DB131Tf3.js                                                                       │ esm  │ 1.87 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-page-stream-Dmthujts.js                                                                             │ esm  │ 9.69 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-prerender-endpoints-COs820gM.js                                                                     │ esm  │ 1.96 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-prerender-static-params-B1qD0gKS.js                                                                 │ esm  │ 0.17 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-route-handler-dispatch-DHVWOCQi.js                                                                  │ esm  │ 25.49 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-segment-config-CMabM1cW.js                                                                          │ esm  │ 14.57 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/app-static-generation-DhOT5QrC.js                                                                       │ esm  │ 0.89 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/cache-headers-rXaK8hyB.js                                                                               │ esm  │ 47.04 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/framework~index-C0-sSg6i.js                                                                             │ esm  │ 0.19 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/framework~index~layout~page~app-page-cache-render~app-page-cache~app-route-handler-dispatch-euTdYXWf.js │ esm  │ 5.98 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/framework~index~page~app-route-handler-dispatch-Czyy2-iO.js                                             │ esm  │ 55.29 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/implicit-tags-Cj_7Bnup.js                                                                               │ esm  │ 1.63 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/isr-cache-CLaU4xdd.js                                                                                   │ esm  │ 4.81 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/navigation-runtime-BI6AY_rD.js                                                                          │ esm  │ 0.78 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/page-CGxi30ez.js                                                                                        │ esm  │ 0.33 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/record-Crmk5sem.js                                                                                      │ esm  │ 4.85 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/rolldown-runtime-DUnMT5BP.js                                                                            │ esm  │ 0.68 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/rooms-DGzTk6MA.js                                                                                       │ esm  │ 2.12 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/root-params-0DVgYa50.js                                                                                 │ esm  │ 1.21 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/route-CBBgEYhj.js                                                                                       │ esm  │ 0.56 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/route-XuE-KN_6.js                                                                                       │ esm  │ 3.02 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/route-xM8aRSfo.js                                                                                       │ esm  │ 0.74 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/rsc-C0u-JDoU.js                                                                                         │ esm  │ 0.71 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/server-DHHhK9gM.js                                                                                      │ esm  │ 0.94 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ _next/static/text-stream-BrFAj5L2.js                                                                                 │ esm  │ 18.96 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/__vite_rsc_assets_manifest.js                                                                                    │ esm  │ 2.25 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/Hotel-CLbDh-E9.js                                                                                   │ esm  │ 32.50 KiB  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/app-prefetch-fetch-queue-DxuBK-0j.js                                                                │ esm  │ 0.00 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/app-router-scroll-CVA6D-8y.js                                                                       │ esm  │ 2.49 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/error-boundary-CpKCYeaG.js                                                                          │ esm  │ 5.27 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/layout-segment-context-uYKxdJGQ.js                                                                  │ esm  │ 0.37 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/static.edge-CKJjMt3N.js                                                                             │ esm  │ 0.16 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/_next/static/streamed-icons-CYdOGffu.js                                                                          │ esm  │ 0.67 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/index.js                                                                                                         │ esm  │ 271.78 KiB │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ ssr/vinext-client-assets.js                                                                                          │ esm  │ 1.40 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ vinext-client-assets.js                                                                                              │ esm  │ 1.40 KiB   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────┼────────────┤
+│ Total (39 modules)                                                                                                   │      │ 533.50 KiB │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────┴────────────┘
+⎔ Starting local server...
+[wrangler:info] ✨ Parsed 1 valid header rule.
+[wrangler:info] Ready on http://127.0.0.1:5173
+[wrangler:info] GET /api/reservations 200 OK (282ms)
+[wrangler:info] POST /api/reservations 400 Bad Request (8ms)
+[wrangler:info] POST /api/reservations 400 Bad Request (15ms)
+[wrangler:info] POST /api/reservations 400 Bad Request (6ms)
+[wrangler:info] POST /api/reservations 400 Bad Request (6ms)
+[wrangler:info] POST /api/reservations 403 Forbidden (5ms)
+[wrangler:info] POST /api/reservations 201 Created (10ms)
+[wrangler:info] POST /api/reservations 200 OK (6ms)
+[wrangler:info] POST /api/reservations 201 Created (11ms)
+[wrangler:info] POST /api/reservations 409 Conflict (28ms)
+[wrangler:info] POST /api/reservations 409 Conflict (29ms)
+[wrangler:info] POST /api/reservations 409 Conflict (29ms)
+[wrangler:info] POST /api/reservations 409 Conflict (28ms)
+[wrangler:info] POST /api/reservations 409 Conflict (56ms)
+[wrangler:info] POST /api/reservations 409 Conflict (57ms)
+[wrangler:info] POST /api/reservations 409 Conflict (58ms)
+[wrangler:info] POST /api/reservations 409 Conflict (58ms)
+[wrangler:info] POST /api/reservations 409 Conflict (58ms)
+[wrangler:info] POST /api/reservations 409 Conflict (58ms)
+[wrangler:info] POST /api/reservations 409 Conflict (58ms)
+[wrangler:info] GET /api/availability 200 OK (6ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET /api/reservations 200 OK (5ms)
+[wrangler:info] PATCH /api/reservations/ab5688bb-5287-47be-bafd-c322aeb8dd31 404 Not Found (6ms)
+[wrangler:info] POST /api/reservations 201 Created (8ms)
+[wrangler:info] PATCH /api/reservations/ab5688bb-5287-47be-bafd-c322aeb8dd31 200 OK (6ms)
+[wrangler:info] GET /api/availability 200 OK (5ms)
+[wrangler:info] PATCH /api/reservations/ab5688bb-5287-47be-bafd-c322aeb8dd31 200 OK (7ms)
+[wrangler:info] PATCH /api/reservations/57cc65dd-3806-46f9-a8ff-405b984251e4 200 OK (6ms)
+[wrangler:info] PATCH /api/reservations/b9b9af14-26c5-4d95-8737-142862727e4c 200 OK (7ms)
+[wrangler:info] GET / 200 OK (58ms)
+[wrangler:info] GET /images/hero.webp 200 OK (6ms)
+[wrangler:info] GET /_next/static/css/index.B7nHaUVl.css 200 OK (5ms)
+[wrangler:info] GET /_next/static/chunks/rolldown-runtime-C60lm6uB.js 200 OK (6ms)
+[wrangler:info] GET /_next/static/chunks/layout-segment-context-CEpe5aEC.js 200 OK (13ms)
+[wrangler:info] GET /_next/static/chunks/Hotel-D3dcC9ga.js 200 OK (14ms)
+[wrangler:info] GET /_next/static/chunks/framework-D_rUT4EX.js 200 OK (14ms)
+[wrangler:info] GET /_next/static/chunks/index-CUgj5cTs.js 200 OK (15ms)
+[wrangler:info] GET /images/room.webp 200 OK (6ms)
+[wrangler:info] GET /images/suite.webp 200 OK (8ms)
+[wrangler:info] GET /images/family.webp 200 OK (8ms)
+[wrangler:info] GET /api/reservations 200 OK (7ms)
+[wrangler:info] GET /api/availability 200 OK (83ms)
+[wrangler:info] GET /api/reservations 200 OK (7ms)
+[wrangler:info] GET / 200 OK (17ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (6ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (6ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET /api/availability 200 OK (7ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET / 200 OK (16ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (13ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (15ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET /api/availability 200 OK (7ms)
+[wrangler:info] GET /api/availability 200 OK (9ms)
+[wrangler:info] POST /api/reservations 201 Created (10ms)
+[wrangler:info] GET /api/reservations 200 OK (10ms)
+[wrangler:info] GET /api/reservations 200 OK (7ms)
+[wrangler:info] PATCH /api/reservations/5a0c1a29-d704-4f50-8506-4232d11ccadb 200 OK (7ms)
+[wrangler:info] GET / 200 OK (16ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (6ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (9ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (9ms)
+[wrangler:info] GET /api/reservations 200 OK (9ms)
+[wrangler:info] GET /api/availability 200 OK (224ms)
+[wrangler:info] GET /api/availability 200 OK (99ms)
+[wrangler:info] POST /api/reservations 201 Created (106ms)
+[wrangler:info] GET /api/reservations 200 OK (10ms)
+[wrangler:info] PATCH /api/reservations/5818bdf5-af09-4d06-b49a-189e28f725ce 200 OK (9ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET / 200 OK (17ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (4ms)
+[wrangler:info] GET /api/reservations 200 OK (8ms)
+[wrangler:info] POST /api/reservations 400 Bad Request (5ms)
+[wrangler:info] GET /api/reservations 200 OK (6ms)
+[wrangler:info] GET / 200 OK (16ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (7ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (8ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (8ms)
+[wrangler:info] GET /api/reservations 200 OK (22ms)
+[wrangler:info] GET /api/availability 400 Bad Request (5ms)
+[wrangler:info] GET /api/reservations 200 OK (5ms)
+[wrangler:info] GET / 200 OK (26ms)
+[wrangler:info] GET /images/hero.webp 200 OK (17ms)
+[wrangler:info] GET /_next/static/chunks/framework-D_rUT4EX.js 200 OK (23ms)
+[wrangler:info] GET /_next/static/chunks/layout-segment-context-CEpe5aEC.js 200 OK (25ms)
+[wrangler:info] GET /_next/static/chunks/Hotel-D3dcC9ga.js 200 OK (23ms)
+[wrangler:info] GET /_next/static/css/index.B7nHaUVl.css 200 OK (27ms)
+[wrangler:info] GET /_next/static/chunks/rolldown-runtime-C60lm6uB.js 200 OK (27ms)
+[wrangler:info] GET /_next/static/chunks/index-CUgj5cTs.js 200 OK (10ms)
+[wrangler:info] GET /images/room.webp 200 OK (5ms)
+[wrangler:info] GET /images/suite.webp 200 OK (8ms)
+[wrangler:info] GET /images/family.webp 200 OK (11ms)
+[wrangler:info] GET /favicon.svg 200 OK (4ms)
+[wrangler:info] GET /api/reservations 200 OK (12ms)
+[wrangler:info] GET /favicon.svg 304 Not Modified (6ms)
+[wrangler:info] GET / 200 OK (15ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (9ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (7ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (9ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (7ms)
+[wrangler:info] GET /api/reservations 200 OK (8ms)
+[wrangler:info] GET / 200 OK (15ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (4ms)
+[wrangler:info] GET /api/reservations 200 OK (8ms)
+[wrangler:info] GET / 200 OK (14ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (6ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (5ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (6ms)
+[wrangler:info] GET /api/reservations 200 OK (8ms)
+[wrangler:info] GET / 200 OK (13ms)
+[wrangler:info] GET /images/hero.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/room.webp 304 Not Modified (4ms)
+[wrangler:info] GET /images/suite.webp 304 Not Modified (8ms)
+[wrangler:info] GET /images/family.webp 304 Not Modified (8ms)
+[wrangler:info] GET /api/reservations 200 OK (10ms)

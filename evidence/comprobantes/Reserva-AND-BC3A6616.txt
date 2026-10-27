@@ -1,0 +1,13 @@
+HOTEL ANDES
+RESERVA DE DEMOSTRACIÓN
+
+Código: AND-BC3A6616
+Huésped: Visitante Cypress
+Habitación: Habitación Andina
+Llegada: 6 mar 2027
+Salida: 8 mar 2027
+Huéspedes: 2
+Total: Bs 1.040
+Estado: Confirmada
+
+Prototipo académico. No constituye una reserva en un hotel real. Sin cobros ni envío de correos.
