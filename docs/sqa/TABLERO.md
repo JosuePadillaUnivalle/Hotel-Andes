@@ -2,7 +2,7 @@
 
 https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa
 
-Exportación del 27/10/2026. Verificado indica evidencia técnica; QA04 mantiene la revisión grupal pendiente.
+Versión 1.1. Ejecución centralizada en Josue Padilla. Karen y Santiago representan roles simulados; QA04 registra la modalidad y las evidencias, sin aprobaciones personales atribuidas.
 
 ## Backlog
 
@@ -20,6 +20,13 @@ No hay histórico válido para velocidad o densidad de defectos por KLOC. La cob
 
 https://trello.com/c/RQS3HbJC/12-mej02-seguimiento-de-velocidad-y-cobertura-de-c%C3%B3digo
 
+### MEJ03 Comprobar acceso del docente al tablero
+
+El tablero es privado. Antes de compartir su enlace, Josue debe comprobar si el docente necesita invitación y utilizar su cuenta correcta. Las capturas y la exportación del tablero se incluyen en el ZIP como respaldo.
+La aceptación docente de la modalidad de roles simulados no se presume.
+
+https://trello.com/c/fxVSP5un/15-mej03-comprobar-acceso-del-docente-al-tablero
+
 ## Sprint actual
 
 Sin tarjetas en este corte.
@@ -30,31 +37,7 @@ Sin tarjetas en este corte.
 
 ## Revisión del equipo
 
-### QA04 Revisión final del equipo y acceso del docente
-
-Pendiente: que los tres integrantes revisen el plan y resultados, confirmen roles, y concedan al docente acceso al tablero privado si lo requiere.
-No invitar cuentas sin conocer los usuarios correctos.
-Cierre: enlaces accesibles, archivos revisados y sin defectos críticos abiertos.
-
-https://trello.com/c/YVZEgrRP/10-qa04-revisi%C3%B3n-final-del-equipo-y-acceso-del-docente
-
-### QA01 Plan y trazabilidad del sprint
-
-Preparar plan de pruebas ágil con las ocho secciones exigidas, matriz HU-CA-prueba y criterios DoR y DoD.
-Participantes: Josue Padilla, Santiago Roca y Karen Caral.
-Distribución de roles propuesta sujeta a revisión del equipo.
-No se simulan reuniones ni firmas.
-https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/PLAN.md
-
-https://trello.com/c/Z8Ecy0vd/7-qa01-plan-y-trazabilidad-del-sprint
-
-### QA03 Auditoría y acciones correctivas
-
-Revisar trazabilidad, automatización, criterios de salida y evidencias. Registrar hallazgos con estado, responsable propuesto y verificación.
-Informe: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/AUDITORIA.md
-No se atribuyen auditorías a compañeros sin su revisión.
-
-https://trello.com/c/6hJxRTtH/9-qa03-auditor%C3%ADa-y-acciones-correctivas
+Sin tarjetas en este corte.
 
 ## Verificado
 
@@ -64,8 +47,10 @@ Como visitante quiero navegar desde una pantalla pequeña.
 CA11 sin desborde horizontal a 390 px y menú que abre y cierra.
 Pruebas SE01 a SE04; Selenium Chrome headless. SE04 emula 390 x 844.
 Resultado local: 4 de 4 comprobaciones aprobadas el 27/10/2026. No equivale a certificación de accesibilidad.
-Referente propuesto: Santiago Roca.
+Rol simulado de seguimiento: Santiago Roca.
 https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/evidence/selenium/results.json
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/yqMm62Zl/6-hu06-consultar-la-web-desde-m%C3%B3vil
 
@@ -74,7 +59,7 @@ https://trello.com/c/yqMm62Zl/6-hu06-consultar-la-web-desde-m%C3%B3vil
 Como visitante quiero consultar fechas y huéspedes para elegir una habitación disponible.
 Criterios CA01 búsqueda válida; CA02 fechas inválidas se rechazan; CA05 capacidad de 1 a 4.
 Pruebas: CY01, CY02, CY06 y unitarias.
-Prioridad alta. Referente propuesto: Josue Padilla.
+Prioridad alta. Responsable de ejecución: Josue Padilla.
 Evidencia: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/evidence/cypress/results.json
 
 https://trello.com/c/sNWfnLwR/1-hu01-consultar-disponibilidad
@@ -84,7 +69,7 @@ https://trello.com/c/sNWfnLwR/1-hu01-consultar-disponibilidad
 Como visitante quiero obtener código e importe al reservar.
 CA01 confirmación; CA06 precio calculado por servidor; CA07 idempotencia sin duplicados.
 Pruebas CY03 y API grupo 2.
-Prioridad alta. Referente propuesto: Josue Padilla.
+Prioridad alta. Responsable de ejecución: Josue Padilla.
 https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/tests/api.test.mjs
 
 https://trello.com/c/70gB2i1i/2-hu02-confirmar-reserva-sin-duplicados
@@ -94,8 +79,10 @@ https://trello.com/c/70gB2i1i/2-hu02-confirmar-reserva-sin-duplicados
 Como responsable del hotel quiero respetar el inventario ante solicitudes simultáneas.
 CA03 sin disponibilidad devuelve 409; CA04 dos reservas familiares como máximo por intervalo.
 Prueba API: con una unidad familiar ocupada, 12 solicitudes compiten por la última: 1 éxito y 11 conflictos.
-Prioridad crítica. Referente propuesto: Santiago Roca.
+Prioridad crítica. Rol simulado de seguimiento: Santiago Roca.
 https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/evidence/node/api.log
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/XyTzHUbr/3-hu03-evitar-sobreventa
 
@@ -104,8 +91,10 @@ https://trello.com/c/XyTzHUbr/3-hu03-evitar-sobreventa
 Como visitante quiero consultar y cancelar únicamente mis reservas.
 CA08 aislamiento entre visitantes; CA09 cancelar libera disponibilidad y cambia estado.
 Pruebas API grupos 4 y 6; CY04.
-Prioridad alta. Referente propuesto: Karen Caral.
+Prioridad alta. Rol simulado QA: Karen Caral.
 https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/tests/cypress/reservas.cy.cjs
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/kAI45STw/4-hu04-consultar-y-cancelar-reservas-propias
 
@@ -114,8 +103,10 @@ https://trello.com/c/kAI45STw/4-hu04-consultar-y-cancelar-reservas-propias
 Como visitante quiero conservar mi código y detalles de la reserva en un archivo.
 CA10 comprobante TXT contiene código y aviso de demostración.
 Prueba CY03: descarga y verificación del contenido del archivo.
-Prioridad media. Referente propuesto: Karen Caral.
+Prioridad media. Rol simulado QA: Karen Caral.
 https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/tests/cypress/reservas.cy.cjs
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/6W5uhBlf/5-hu05-descargar-comprobante
 
@@ -140,8 +131,10 @@ Observado: 503 y cierre de la vista previa en intentos iniciales.
 Acción: Wrangler 4.154.0, tipos compatibles y eliminación reproducible de legacy_env en configuración generada.
 Verificación: API 6/6 grupos, Cypress 6/6 casos, Selenium 4/4 y GitHub Actions aprobados.
 Historial: https://github.com/JosuePadillaUnivalle/Hotel-Andes/tree/main/evidence/history
-CI: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40578393966
-Responsable de seguimiento propuesto: Santiago Roca.
+CI: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691
+Rol simulado de seguimiento: Santiago Roca.
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/z70NXEYV/13-def01-corregir-fallos-del-entorno-wrangler
 
@@ -154,6 +147,42 @@ Corrección: Bash con pipefail, scripts/verify-ci-results.mjs, espera de identid
 Verificación final: https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/40579881691
 Se descargó el artefacto y se verificaron los JSON: Cypress 6/6, Selenium 4/4, sin omisiones. API 6/6 y unitarias 8/8.
 Historial preservado: evidence/ci/run-40578393966/LEEME.md.
-Responsable de seguimiento propuesto: Santiago Roca.
+Rol simulado de seguimiento: Santiago Roca.
+
+Modalidad de esta entrega: ejecución y administración centralizadas en Josue Padilla. Karen y Santiago son referencias de roles simulados; esta tarjeta no acredita revisiones personales de ellos.
 
 https://trello.com/c/oCjbC1uA/14-def02-corregir-propagaci%C3%B3n-de-errores-y-pruebas-en-ci
+
+### QA04 Revisión de evidencias por roles simulados
+
+Revisión documental SQA HA 1.1, 27/10/2026.
+Ejecución centralizada en Josue Padilla.
+Perspectiva de producto: alcance de seis historias y once criterios.
+Rol QA representado como Karen: fechas inválidas, aislamiento, cancelación y métricas.
+Rol Scrum Master representado como Santiago: tablero, concurrencia y CI.
+Se comprobaron los registros existentes: unitarias 8/8, API 6/6 grupos, Cypress 6/6 y Selenium 4/4. CI remota final 40579881691 con JSON comprobados.
+Registro: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/REVISION_ROLES.md
+El cierre corresponde a la simulación documentada; no equivale a firmas ni aprobación personal de Karen o Santiago. No acredita revisión independiente por tres personas.
+
+https://trello.com/c/YVZEgrRP/10-qa04-revisi%C3%B3n-de-evidencias-por-roles-simulados
+
+### QA01 Plan y trazabilidad del sprint
+
+Plan de pruebas SQA HA 1.1 con los ocho apartados, matriz de once criterios, DoR y DoD.
+Integrantes: Josue Padilla, Santiago Roca y Karen Caral.
+Ejecución centralizada en Josue; Karen representa QA y Santiago representa Scrum Master dentro del ejercicio simulado.
+No se atribuyen reuniones, firmas o revisiones personales que no ocurrieron.
+Plan: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/PLAN.md
+Registro: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/REVISION_ROLES.md
+
+https://trello.com/c/Z8Ecy0vd/7-qa01-plan-y-trazabilidad-del-sprint
+
+### QA03 Auditoría y acciones correctivas
+
+Auditoría SQA HA 1.1: hallazgos A01-A08, correcciones y evidencia local y remota.
+Ejecución centralizada en Josue. Karen representa la perspectiva QA y Santiago la de seguimiento dentro de una simulación de roles.
+La revisión no acredita participación personal de Karen o Santiago ni independencia entre tres revisores.
+Informe: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/AUDITORIA.md
+Registro: https://github.com/JosuePadillaUnivalle/Hotel-Andes/blob/main/docs/sqa/REVISION_ROLES.md
+
+https://trello.com/c/6hJxRTtH/9-qa03-auditor%C3%ADa-y-acciones-correctivas

@@ -4,12 +4,12 @@ Este plan define cómo comprobamos la calidad del prototipo web de reservas de H
 
 | Control del documento | Dato |
 | --- | --- |
-| Código y versión | SQA HA 1.0 |
+| Código y versión | SQA HA 1.1 |
 | Fecha de corte | 27 de octubre de 2026 |
 | Equipo | Josue Padilla · Santiago Roca · Karen Caral |
 | Marco de trabajo | Scrum académico |
 | Iteración | Sprint SQA 01 de consolidación y pruebas |
-| Estado | Preparado para revisión del equipo |
+| Estado | Revisión técnica por roles simulados documentada |
 
 ## 1 Introducción
 
@@ -70,7 +70,7 @@ Priorizamos los riesgos de pérdida de disponibilidad, sobreventa, acceso ajeno 
 | Integración | Node y fetch verifican API, D1, idempotencia y concurrencia. | 6 grupos; api.log |
 | Aceptación BDD | Cypress 16.2.0 ejecuta búsqueda, reserva, descarga, cancelación y rechazos. | 6 casos; results.json y capturas |
 | Interfaz y adaptación | Selenium WebDriver 4.51.0 verifica catálogo, detalle con Escape, filtro y menú móvil. | 4 casos; results.json y capturas |
-| Exploratorias y revisión | El equipo revisa claridad de mensajes, contenido y aspectos no automatizados. | Observaciones en Trello; revisión grupal pendiente |
+| Exploratorias y revisión | Revisión técnica centralizada y comprobación de evidencia por roles simulados. | Registro en QA04 y REVISION_ROLES.md |
 
 ## Criterios expresados como comportamiento
 
@@ -83,19 +83,19 @@ BDD utiliza ejemplos de comportamiento para acordar qué debe hacer el producto.
 
 GitHub Actions instala dependencias desde el lockfile, comprueba tipos, ejecuta unitarias, compila, crea una base D1 local efímera y ejecuta API, Cypress y Selenium. Bash con pipefail transmite los errores aunque se guarden logs con tee; además se comprueban los conteos JSON. Los artefactos se conservan 30 días. El flujo se activa en cambios de código en main, en pull requests o manualmente.
 
-La publicación del sitio privado se gestiona por separado. Este flujo incorpora CI; no publica automáticamente ni modifica la base del sitio alojado. La entrega requiere una ejecución correcta y revisión del equipo.
+La publicación del sitio privado se gestiona por separado. Este flujo incorpora CI; no publica automáticamente ni modifica la base del sitio alojado. La entrega registra la ejecución correcta y una revisión por roles simulados, con su alcance declarado.
 
 ## 4 Roles y responsabilidades
 
-La siguiente distribución se propone para el grupo de tres. Los integrantes deben confirmarla al revisar la entrega. Pueden combinar funciones en el ejercicio, manteniendo la calidad como responsabilidad compartida.
+La ejecución y administración del trabajo están centralizadas en Josue Padilla. Para el ejercicio se representan los roles de Santiago Roca y Karen Caral como una simulación. Los tres figuran como integrantes; esta distribución no acredita revisiones personales realizadas por Santiago o Karen.
 
-| Integrante | Funciones propuestas | Responsabilidad |
+| Integrante | Modalidad y función | Responsabilidad en el ejercicio |
 | --- | --- | --- |
-| Josue Padilla | Product Owner y desarrollo | Priorizar reservas, validar criterios con el equipo y mantener código y repositorio. |
-| Santiago Roca | Scrum Master y desarrollo | Facilitar el seguimiento, revisar concurrencia, entorno e integración continua. |
-| Karen Caral | QA Champion y pruebas | Revisar casos, métricas, auditoría y evidencias; coordinar la regresión. |
+| Josue Padilla | Ejecución real y rol Product Owner | Centralizar el trabajo, mantener código y tablero y comprobar el alcance de la entrega. |
+| Santiago Roca | Rol simulado de Scrum Master | Representar el seguimiento, la concurrencia y la revisión de integración continua. |
+| Karen Caral | Rol simulado de QA Champion | Representar la revisión de casos, métricas, auditoría y evidencias. |
 
-Quien implementa un cambio prepara su prueba; otro integrante revisa el caso y el resultado. El Product Owner confirma el criterio de aceptación, QA comprueba la evidencia y el Scrum Master facilita el seguimiento. Estas aprobaciones se registran cuando ocurren.
+La revisión se organiza en tres perspectivas: producto, calidad y seguimiento. Josue centraliza la ejecución; el rol QA, representado como Karen, comprueba los casos y resultados; el rol Scrum Master, representado como Santiago, comprueba el seguimiento y CI. El registro detalla la evidencia de cada perspectiva. No constituye una revisión independiente de tres personas.
 
 ## 5 Ciclo de vida de las pruebas
 
@@ -109,9 +109,9 @@ Quien implementa un cambio prepara su prueba; otro integrante revisa el caso y e
 
 ## Organización en Scrum
 
-Se propone una cadencia de una semana para las siguientes iteraciones. El corte técnico de este sprint corresponde al 27 de octubre de 2026; las reuniones y la fecha de cierre grupal se acuerdan con los integrantes. El tablero tiene Backlog, Sprint actual, En pruebas, Revisión del equipo y Verificado.
+Se propone una cadencia de una semana para las siguientes iteraciones. El corte técnico de este sprint corresponde al 27 de octubre de 2026; la revisión de este corte se documenta como ejercicio de roles, sin actas de reuniones grupales. El tablero tiene Backlog, Sprint actual, En pruebas, Revisión del equipo y Verificado.
 
-Cada tarjeta incluye historia o tarea, prioridad, criterios y enlace al código o resultado. Verificado significa que existe evidencia técnica. La aceptación del equipo se mantiene separada en QA04 hasta que los tres revisen la entrega.
+Cada tarjeta incluye historia o tarea, prioridad, criterios y enlace al código o resultado. Verificado significa que existe evidencia técnica. QA04 registra el ejercicio de revisión por roles simulados y distingue los resultados técnicos de una aprobación personal de los integrantes.
 
 Un defecto debe registrar pasos, entorno, resultado esperado y observado, gravedad, evidencia y acción correctiva. Tras corregirlo se repite la prueba afectada y la regresión relacionada.
 
@@ -131,9 +131,9 @@ Una historia está preparada cuando su necesidad y prioridad son claras, tiene c
 - Todos los criterios de alta prioridad y críticos cubiertos y aprobados.
 - Sin defectos críticos o altos abiertos dentro del alcance probado.
 - Resultados, capturas y acciones correctivas disponibles en el repositorio y vinculados al tablero.
-- Revisión por otro integrante y validación funcional del Product Owner registradas.
+- Registro de revisión desde producto, QA y seguimiento, identificado como simulación de roles.
 
-En el corte técnico los casos automatizados locales están aprobados. El cierre grupal requiere completar la revisión QA04; una ejecución técnica correcta no sustituye esa revisión.
+En este corte, las pruebas automatizadas están aprobadas y QA04 documenta la revisión por roles simulados. La colaboración efectiva de tres personas y una revisión independiente no forman parte de la evidencia acreditada.
 
 ## Suspensión y reanudación
 
@@ -168,13 +168,13 @@ La cobertura de aceptación no es cobertura de líneas de código. La cobertura 
 
 ## Seguimiento y acciones
 
-La meta propuesta es mantener 100 % de criterios críticos y altos aprobados, cero defectos críticos abiertos y evidencia para cada historia incluida. Si un indicador incumple la meta, la tarjeta vuelve a En pruebas y se registra una acción correctiva. Karen coordina el cálculo propuesto; el equipo revisa el resultado al cierre.
+La meta propuesta es mantener 100 % de criterios críticos y altos aprobados, cero defectos críticos abiertos y evidencia para cada historia incluida. Si un indicador incumple la meta, la tarjeta vuelve a En pruebas y se registra una acción correctiva. El rol QA, representado como Karen en la simulación, comprueba los conteos; Josue centraliza su registro.
 
 La duración total no se compara entre suites ejecutadas en momentos distintos. Los tiempos de Cypress y Selenium están en sus JSON originales. La prueba concurrente comprueba inventario, no representa una medición de capacidad de carga del sistema.
 
 ## 8 Riesgos y mitigación
 
-Escala propuesta de probabilidad e impacto: 1 bajo, 2 medio, 3 alto. El producto P × I permite ordenar riesgos; es una estimación del equipo para planificar, no una frecuencia medida.
+Escala propuesta de probabilidad e impacto: 1 bajo, 2 medio, 3 alto. El producto P × I permite ordenar riesgos; es una estimación para planificar, no una frecuencia medida. Los referentes de Karen y Santiago en la matriz corresponden a roles simulados.
 
 | ID | Riesgo | P × I | Tratamiento | Referente propuesto |
 | --- | --- | --- | --- | --- |
@@ -189,7 +189,7 @@ Escala propuesta de probabilidad e impacto: 1 bajo, 2 medio, 3 alto. El producto
 
 - Añadir cobertura de código y ampliar las pruebas de accesibilidad y rendimiento con condiciones documentadas.
 - Registrar puntos y aceptación al cerrar cada sprint para calcular velocidad con datos reales.
-- Completar la revisión de los integrantes y el acceso del docente al tablero privado.
+- Comprobar el acceso del docente al tablero privado y realizar una revisión independiente en una próxima iteración.
 
 ## Acceso a la evidencia
 

@@ -7,12 +7,12 @@ Revisión técnica del prototipo y de las evidencias del Sprint SQA 01. El objet
 | Fecha | 27 de octubre de 2026 |
 | Equipo | Josue Padilla, Santiago Roca y Karen Caral |
 | Objeto | Código, pruebas, configuración, repositorio y tablero |
-| Referencia | Plan SQA web y Test Plan SQA HA 1.0 |
-| Modalidad | Inspección técnica y ejecución de pruebas; validación grupal pendiente |
+| Referencia | Plan SQA web y Test Plan SQA HA 1.1 |
+| Modalidad | Inspección técnica centralizada y revisión por roles simulados |
 
 ## Conclusión de la revisión
 
-Las pruebas finales locales aprueban las reglas y los recorridos incluidos en el plan. Se incorporaron las dos herramientas de aceptación requeridas, trazabilidad, tablero y CI. El avance es demostrable como proyecto académico. Antes del cierre del sprint, los tres integrantes deben revisar la documentación y el acceso del docente.
+Las pruebas finales locales aprueban las reglas y los recorridos incluidos en el plan. Se incorporaron las dos herramientas de aceptación requeridas, trazabilidad, tablero y CI. El avance es demostrable como proyecto académico. El cierre se documenta mediante una revisión por roles simulados centralizada en Josue. El acceso del docente al tablero privado debe comprobarse antes de compartir su enlace.
 
 | Hallazgo | Observación y acción | Estado |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ Las pruebas finales locales aprueban las reglas y los recorridos incluidos en el
 | A05 Seguimiento y CI | Crear tablero con enlaces de evidencia y configurar integración continua en el repositorio. | Tablero creado; CI aprobada |
 | A07 Códigos de salida | La primera CI mostró éxito aunque Cypress y Selenium fallaron. Activar pipefail y validar los reportes JSON. | Corregido; CI aprobada |
 | A08 Portabilidad | En Linux se detectaron problemas en la preparación de sesión y en clics durante el desplazamiento. Corregir preparación y esperas. | Verificación en ejecución final |
-| A06 Aceptación grupal | Confirmar roles, revisar resultados e invitar al docente si necesita acceso al tablero privado. | Pendiente en QA04 |
+| A06 Modalidad de revisión | Documentar la ejecución centralizada y el ejercicio de roles de producto, QA y Scrum Master. | Registrado en QA04 como simulación |
 
 ## Acciones correctivas y comprobación
 
@@ -46,9 +46,9 @@ A07 detectó que tee ocultaba el fallo de los comandos en CI. El registro 405783
 
 ## Observaciones abiertas y mejora
 
-QA04 mantiene pendiente la revisión real del grupo. MEJ01 propone accesibilidad y rendimiento; MEJ02 añade cobertura de código y seguimiento de velocidad. Estas mejoras no se presentan como pruebas ejecutadas. El análisis no certifica seguridad completa ni preparación para huéspedes reales.
+QA04 registra la revisión por roles simulados. MEJ01 propone accesibilidad y rendimiento; MEJ02 añade cobertura y velocidad. Estas mejoras no se presentan como pruebas ejecutadas. La simulación no acredita revisión independiente ni participación efectiva de tres revisores. El análisis no certifica seguridad completa ni preparación para huéspedes reales.
 
-Los responsables de seguimiento se proponen en el plan: Josue para entrega y acceso, Santiago para entorno e integración, y Karen para trazabilidad y métricas. La revisión final debe registrar acuerdos y aceptar o ajustar esa distribución.
+En el ejercicio, Josue representa producto y entrega; Santiago representa Scrum Master y revisa como rol la concurrencia y CI; Karen representa QA y revisa como rol fechas, aislamiento, cancelación y métricas. La ejecución está centralizada en Josue. El registro REVISION_ROLES.md enlaza los casos y resultados; no se atribuyen firmas ni aprobaciones personales a Karen o Santiago.
 
 ## Enlaces verificables
 

@@ -4,6 +4,8 @@
 
 ## Plan SQA y evidencias
 
+Versión documental SQA HA 1.1. La ejecución y administración están centralizadas en Josue Padilla. Karen y Santiago representan roles simulados de QA y Scrum Master; el [registro de revisión](docs/sqa/REVISION_ROLES.md) distingue el ejercicio de una revisión personal o independiente de los integrantes.
+
 - [Plan de pruebas ágil](docs/sqa/PLAN.md)
 - [Auditoría interna y acciones correctivas](docs/sqa/AUDITORIA.md)
 - [Tablero Scrum y SQA en Trello](https://trello.com/b/VOKoZIGB/hotel-andes-scrum-y-plan-sqa) (privado)

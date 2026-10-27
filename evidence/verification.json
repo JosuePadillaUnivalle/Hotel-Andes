@@ -156,8 +156,8 @@
       "total": 4
     }
   },
-  "groupReview": "pending QA04",
-  "roles": "proposed pending group review",
+  "groupReview": "documented role simulation QA04; not an independent group review",
+  "roles": "Josue centralizes execution; Santiago and Karen are simulated role references",
   "notMeasured": [
     "line coverage",
     "team velocity",

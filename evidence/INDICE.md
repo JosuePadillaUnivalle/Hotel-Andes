@@ -1,6 +1,6 @@
 # Índice de evidencias SQA
 
-Corte del 27 de octubre de 2026. Revisión del grupo pendiente en QA04.
+Corte del 27 de octubre de 2026. Revisión por roles simulados documentada en QA04 y docs/sqa/REVISION_ROLES.md. Ejecución centralizada en Josue; no acredita una revisión independiente de tres personas.
 
 ## Ejecución final local
 
@@ -20,7 +20,7 @@ Corte del 27 de octubre de 2026. Revisión del grupo pendiente en QA04.
 
 ## Seguimiento
 
-- trello/tablero.json y trello/tablero.png: exportación y captura de las 14 tarjetas.
+- trello/tablero.json y trello/tablero.png: exportación y captura de las 15 tarjetas.
 - docs/sqa en el repositorio: plan, auditoría, matriz y exportación legible del tablero.
 
 ## Historial de hallazgos
