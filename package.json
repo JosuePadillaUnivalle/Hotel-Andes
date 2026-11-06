@@ -16,6 +16,7 @@
     "test:api": "node tests/api.test.mjs",
     "test:cypress": "cypress run --browser chrome",
     "test:selenium": "node tests/selenium/aceptacion.mjs",
+    "test:playwright": "playwright test",
     "test:types": "tsc --noEmit"
   },
   "dependencies": {
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
     "@cloudflare/workers-types": "5.20261027.1",
+    "@playwright/test": "1.65.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
