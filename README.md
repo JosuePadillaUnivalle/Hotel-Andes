@@ -8,7 +8,7 @@ Versión documental SQA HA 1.1. La ejecución y administración están centraliz
 
 - [Plan de pruebas ágil](docs/sqa/PLAN.md)
 - [Auditoría interna y acciones correctivas](docs/sqa/AUDITORIA.md)
-- [Seguimiento del sprint móvil en GitHub Issues](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues)
+- [Tablero del sprint SQA móvil en GitHub Projects](https://github.com/users/JosuePadillaUnivalle/projects/2/views/1)
 - [Test Plan móvil y comandos de demostración](docs/sqa/PLAN-MOVIL.md)
 - [Evidencia de ejecución](evidence/)
 - [Integración continua](.github/workflows/sqa.yml)

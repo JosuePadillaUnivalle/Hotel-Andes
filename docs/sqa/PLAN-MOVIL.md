@@ -36,7 +36,7 @@ Usar las pruebas de aceptación para detectar regresiones desde el navegador. Pr
 3. Registrar revisión y prueba en teléfono en los issues correspondientes. Corregir y repetir los casos afectados.
 4. Tras verificar `develop`, abrir el PR de entrega hacia `main`.
 
-El sprint se sigue en [los issues del repositorio](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues). GitHub Projects reúne las mismas tareas una vez autorizado y enlazado.
+El sprint se sigue en [los issues del repositorio](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues). Las tareas y el PR están en el [tablero de GitHub Projects](https://github.com/users/JosuePadillaUnivalle/projects/2/views/1).
 
 ### Demostración reproducible
 
@@ -47,7 +47,7 @@ npx playwright install chromium
 npm run test:playwright -- --headed
 ```
 
-Para mostrar cada paso con el inspector, ejecutar `npm run test:playwright -- --debug`. El informe HTML y el JSON quedan en `evidence/playwright/`. La ejecución local que respalda este documento se realizó en modo sin ventana.
+Para mostrar cada paso con el inspector, ejecutar `npm run test:playwright -- --debug`. El informe HTML y el JSON quedan en `evidence/playwright/`. La ejecución local que respalda este documento se realizó en modo sin ventana. El [flujo de CI verificado](https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/42307908378) conserva el informe como artefacto.
 
 ## 6. Entrada y salida
 
