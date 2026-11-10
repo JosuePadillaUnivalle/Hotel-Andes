@@ -1,6 +1,6 @@
 # Test Plan móvil · Hotel Andes
 
-Equipo: Josue Padilla, Santiago Roca y Karen Caral. Sprint de aseguramiento de calidad del 6 de noviembre de 2026.
+Equipo: Josue Padilla, Santiago Roca y Karen Caral. Sprint de aseguramiento de calidad iniciado el 6 de noviembre de 2026. Actualización de evidencias del 10 de noviembre de 2026.
 
 ## 1. Introducción
 
@@ -18,8 +18,8 @@ El plan anterior documentó pruebas de dominio, API, Cypress y Selenium. Esta ac
 | --- | --- | --- | --- |
 | PW01 | Abrir menú, mostrar Habitaciones, cerrar al navegar y evitar desborde | Playwright, Chromium a 390 × 844 | [#3](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/3) |
 | PW02 | Filtrar a Refugio Familiar y restablecer las tres habitaciones | Playwright, Chromium a 390 × 844 | [#3](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/3) |
-| MF01 | Navegar al catálogo desde el menú en un celular real | Manual, dispositivo y navegador por registrar | [#4](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4) |
-| MF02 | Aplicar y quitar el filtro familiar en el celular | Manual, dispositivo y navegador por registrar | [#4](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4) |
+| MF01 | Navegar al catálogo desde el menú en un celular real | Manual, Infinix Zero 30 con navegador Hola | [#4](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4) |
+| MF02 | Aplicar y quitar el filtro familiar en el celular | Manual, Infinix Zero 30 con navegador Hola | [#4](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4) |
 
 Usar las pruebas de aceptación para detectar regresiones desde el navegador. Priorizar los fallos que impidan llegar al catálogo o cambien el resultado del filtro.
 
@@ -47,7 +47,7 @@ npx playwright install chromium
 npm run test:playwright -- --headed
 ```
 
-Para mostrar cada paso con el inspector, ejecutar `npm run test:playwright -- --debug`. El informe HTML y el JSON quedan en `evidence/playwright/`. La ejecución local que respalda este documento se realizó en modo sin ventana. El [flujo de CI verificado](https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/42307908378) conserva el informe como artefacto.
+Para mostrar cada paso con el inspector, ejecutar `npm run test:playwright -- --debug`. El informe HTML y el JSON quedan en `evidence/playwright/`. La ejecución local que respalda este documento se realizó en modo sin ventana. El [flujo de CI verificado](https://github.com/JosuePadillaUnivalle/Hotel-Andes/actions/runs/42403119176) conserva el informe como artefacto.
 
 ## 6. Entrada y salida
 
@@ -61,14 +61,21 @@ Para mostrar cada paso con el inspector, ejecutar `npm run test:playwright -- --
 | --- | --- |
 | Ejecución local Playwright | 2 de 2 aprobados, 100 %, el 6 de noviembre de 2026. |
 | Cobertura funcional del alcance automatizado | 2 de 2 criterios del sprint representados por PW01 y PW02. Se distingue de cobertura de código. |
-| Prueba en teléfono | 0 de 2 con evidencia registrada al preparar el plan. |
+| Prueba en teléfono | MF01 y MF02 aprobados según el registro de SantiagoRoca23 del 9 de noviembre de 2026. Versión cb5477e. [Resultados y captura](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4#issuecomment-6742584097). |
+| CI del commit probado | Playwright 2 de 2 aprobados, 0 fallidos y 0 omitidos. Ejecución del 7 de noviembre de 2026. |
+| Revisión del PR | Pendiente de Karen en el PR #7. |
 | Densidad de defectos y velocidad | Pendientes de calcular con un tamaño de código, defectos confirmados y estimaciones de sprint acordadas. |
 
 **Hallazgo de auditoría local.** PW01 falló en la primera ejecución porque el localizador buscaba «Abrir menú» después de que el nombre cambiara a «Cerrar menú». Se corrigió el localizador, se verificó el nombre accesible en el estado abierto y se repitió la suite con 2 de 2 aprobados. Fue un fallo de la prueba. La revisión de Karen se registra en [#5](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/5) cuando se realice.
 
+
+**Evidencia manual incorporada.** SantiagoRoca23 informó que la portada abrió sin pedir acceso, el menú cerró al navegar a Habitaciones, En familia mostró Refugio Familiar y Todas restauró el catálogo. Dejó [su registro con captura](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/4#issuecomment-6742584097) y [el resumen en el PR](https://github.com/JosuePadillaUnivalle/Hotel-Andes/pull/7#issuecomment-6742799789). La evidencia identifica el commit cb5477e. No se reportaron fallos en esos recorridos.
+
+La versión de navegador y del sistema operativo no están especificadas en el registro. Conservar ese dato como mejora de la plantilla de pruebas del siguiente sprint.
+
 ## 8. Riesgos y mejora
 
-- La emulación no cubre particularidades del navegador de un teléfono real. Completar MF01 y MF02 antes del cierre.
+- MF01 y MF02 ya tienen evidencia en Infinix Zero 30 con navegador Hola. Ampliar la matriz de dispositivos y navegadores en un siguiente sprint.
 - Los casos pueden fallar si cambian las etiquetas de la interfaz. Revisar los localizadores junto con los criterios y conservar la traza de fallos.
 - Si la demo pública no está disponible, preparar un entorno accesible al teléfono y registrar qué versión se probó.
 - Usar los resultados del PR y los hallazgos de auditoría para priorizar el siguiente sprint. Seguir el cierre en [#6](https://github.com/JosuePadillaUnivalle/Hotel-Andes/issues/6).
