@@ -20,6 +20,7 @@ test('PW01: el menú móvil abre y cierra al ir a Habitaciones', async ({ page }
   await adjuntarCaptura(page, testInfo, 'menú abierto en viewport móvil');
   await habitaciones.tap();
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await expect(habitaciones).toBeHidden();
   await expect(page).toHaveURL(/#habitaciones$/);
 
   const { viewport, content } = await page.evaluate(() => ({
@@ -41,4 +42,9 @@ test('PW02: el filtro familiar muestra Refugio Familiar y se puede restablecer',
 
   await page.getByRole('button', { name: 'Todas', exact: true }).tap();
   await expect(habitaciones).toHaveCount(3);
+  await expect(habitaciones.locator('h3')).toHaveText([
+    'Habitación Andina',
+    'Suite Panorámica',
+    'Refugio Familiar',
+  ]);
 });
