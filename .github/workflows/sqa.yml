@@ -1,7 +1,7 @@
 name: SQA Hotel Andes
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
     paths-ignore: ['docs/**', 'evidence/**', 'README.md']
   pull_request:
   workflow_dispatch:
@@ -21,6 +21,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Instalar Chromium para Playwright
+        run: npx playwright install --with-deps chromium
       - name: Iniciar evidencia limpia del runner
         run: node -e "require('fs').rmSync('evidence',{recursive:true,force:true});require('fs').mkdirSync('evidence/node',{recursive:true})"
       - name: Reglas y tipos
@@ -41,6 +43,7 @@ jobs:
           npm run test:api 2>&1 | tee evidence/node/api.log
           npm run test:cypress 2>&1 | tee evidence/cypress-run.log
           npm run test:selenium 2>&1 | tee evidence/selenium-run.log
+          npm run test:playwright 2>&1 | tee evidence/playwright-run.log
           node scripts/verify-ci-results.mjs
       - name: Conservar evidencia de la ejecución
         if: always()
@@ -51,4 +54,6 @@ jobs:
             evidence/**/*.log
             evidence/**/*.json
             evidence/**/*.png
+            evidence/playwright/informe/
+            evidence/playwright/casos/
           retention-days: 30
