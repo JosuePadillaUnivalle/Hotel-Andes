@@ -29,7 +29,7 @@ function Brand({ light = false }: { light?: boolean }) {
 }
 function receipt(r: Reservation) {
   const room = ROOMS.find(x => x.id === r.roomType);
-  const text = `HOTEL ANDES\nRESERVA DE DEMOSTRACIÓN\n\nCódigo: ${r.code}\nHuésped: ${r.guestName}\nHabitación: ${room?.name}\nLlegada: ${dateLabel(r.checkIn)}\nSalida: ${dateLabel(r.checkOut)}\nHuéspedes: ${r.guests}\nTotal: ${money(r.total)}\nEstado: ${r.status === "confirmed" ? "Confirmada" : "Cancelada"}\n\nPrototipo académico. No constituye una reserva en un hotel real. Sin cobros ni envío de correos.\n`;
+  const text = `HOTEL ANDES\nRESERVA DE DEMOSTRACIÓN\n\nCódigo: ${r.code}\nHuésped: ${r.guestName}\nCorreo electrónico: ${r.email}\nHabitación: ${room?.name}\nLlegada: ${dateLabel(r.checkIn)}\nSalida: ${dateLabel(r.checkOut)}\nHuéspedes: ${r.guests}\nTotal: ${money(r.total)}\nEstado: ${r.status === "confirmed" ? "Confirmada" : "Cancelada"}\n\nPrototipo académico. No constituye una reserva en un hotel real. Sin cobros ni envío de correos.\n`;
   const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
   const a = document.createElement("a"); a.href = url; a.download = `Reserva-${r.code}.txt`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }

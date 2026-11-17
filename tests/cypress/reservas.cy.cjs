@@ -44,7 +44,10 @@ describe('Aceptación BDD Hotel Andes', () => {
     cy.screenshot('CY03-confirmacion', { capture: 'viewport' });
     cy.contains('button', 'Descargar comprobante').click();
     cy.get('.confirmation-code strong').invoke('text').then(code => {
-      cy.readFile(`evidence/cypress/downloads/Reserva-${code}.txt`).should('contain', code).and('contain', 'DEMOSTRACIÓN');
+      cy.readFile(`evidence/cypress/downloads/Reserva-${code}.txt`)
+        .should('contain', code)
+        .and('contain', 'DEMOSTRACIÓN')
+        .and('contain', 'Correo electrónico: cypress@example.test');
     });
   });
   it('CY04 Dada una reserva cuando cancelo entonces se muestra cancelada', () => {
@@ -59,6 +62,14 @@ describe('Aceptación BDD Hotel Andes', () => {
     cy.get('.status-label').should('contain', 'Cancelada');
     cy.get('.cancel-confirm').should('not.exist');
     cy.screenshot('CY04-cancelacion', { capture: 'viewport' });
+    cy.get('.reservation-item small').invoke('text').then(details => {
+      const code = details.match(/AND-[A-F0-9]{8}/)?.[0];
+      expect(code, 'código de la reserva cancelada').to.be.a('string');
+      cy.contains('button', 'Comprobante').click();
+      cy.readFile(`evidence/cypress/downloads/Reserva-${code}.txt`)
+        .should('contain', 'Estado: Cancelada')
+        .and('contain', 'Correo electrónico: cancelar@example.test');
+    });
   });
   it('CY05 Dado correo inválido cuando envío entonces el servidor lo rechaza', () => {
     cy.request({ method: 'POST', url: '/api/reservations', failOnStatusCode: false, body: {
