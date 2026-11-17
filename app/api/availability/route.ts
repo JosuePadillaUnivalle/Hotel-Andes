@@ -6,9 +6,9 @@ export async function GET(request: Request) {
   const error = validateSearch(s);
   if (error) return json({ error }, 400);
   try {
-    const result = await db().prepare("SELECT unit_id FROM reservations WHERE status = 'confirmed' AND check_in < ? AND check_out > ?").bind(s.checkOut, s.checkIn).all<{ unit_id: string }>();
-    const occupied = new Set(result.results.map(r => r.unit_id));
-    return json({ rooms: ROOMS.filter(r => r.capacity >= s.guests).map(r => ({ id: r.id, available: r.units.filter(u => !occupied.has(u)).length })), search: s });
+    const result = await db().prepare("SELECT room_type FROM reservations WHERE status = 'confirmed' AND check_in < ? AND check_out > ?").bind(s.checkOut, s.checkIn).all<{ room_type: string }>();
+    const occupied = new Set(result.results.map(r => r.room_type));
+    return json({ rooms: ROOMS.filter(r => r.capacity >= s.guests).map(r => ({ id: r.id, available: occupied.has(r.id) ? 0 : 1 })), search: s });
   } catch (err) {
     console.error("Availability failed", err);
     return json({ error: "No pudimos consultar la disponibilidad. Intenta de nuevo en un momento." }, 503);

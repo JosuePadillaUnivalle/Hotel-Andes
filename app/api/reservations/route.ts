@@ -40,13 +40,12 @@ export async function POST(request: Request) {
     const id = crypto.randomUUID();
     const code = "AND-" + id.slice(0, 8).toUpperCase();
     const total = room.rate * nights(s.checkIn, s.checkOut);
-    const candidates = room.units.map((_, i) => i === 0 ? "SELECT ? AS unit_id" : "SELECT ?").join(" UNION ALL ");
-    // Atomic D1 statement prevents concurrent overlapping claims of one unit.
+    // Check all active bookings for this room, including those with an older unit ID.
     const row = await database.prepare(`INSERT INTO reservations (id,code,owner,idempotency_key,unit_id,room_type,check_in,check_out,guests,guest_name,email,nightly_rate,total,status,created_at)
-      SELECT ?,?,?,?,c.unit_id,?,?,?,?,?,?,?,?, 'confirmed',? FROM (${candidates}) c
-      WHERE NOT EXISTS (SELECT 1 FROM reservations r WHERE r.unit_id=c.unit_id AND r.status='confirmed' AND r.check_in < ? AND r.check_out > ?)
-      LIMIT 1 RETURNING *`).bind(id, code, owner, key, room.id, s.checkIn, s.checkOut, s.guests, guestName, email, room.rate, total, new Date().toISOString(), ...room.units, s.checkOut, s.checkIn).first<Record<string, unknown>>();
-    if (!row) return json({ error: "La última habitación acaba de reservarse. Busca otras fechas o elige otra habitación." }, 409, cookie);
+      SELECT ?,?,?,?,?,?,?,?,?,?,?,?,?,'confirmed',?
+      WHERE NOT EXISTS (SELECT 1 FROM reservations r WHERE r.room_type = ? AND r.status = 'confirmed' AND r.check_in < ? AND r.check_out > ?)
+      RETURNING *`).bind(id, code, owner, key, room.unitId, room.id, s.checkIn, s.checkOut, s.guests, guestName, email, room.rate, total, new Date().toISOString(), room.id, s.checkOut, s.checkIn).first<Record<string, unknown>>();
+    if (!row) return json({ code: "ROOM_RESERVED", error: "Esta habitación ya está reservada para esas fechas. Elige otras fechas u otra habitación." }, 409, cookie);
     return json({ reservation: publicReservation(row) }, 201, cookie);
   } catch (err) {
     try { const existing = await previous(); if (existing) return respondPrevious(existing); } catch { /* Preserve original failure. */ }

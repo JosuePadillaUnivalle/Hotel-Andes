@@ -26,7 +26,7 @@ describe('Aceptación BDD Hotel Andes', () => {
   it('CY01 Dadas fechas válidas cuando busco entonces veo disponibilidad', () => {
     search();
     cy.get('.room-card').should('have.length', 3);
-    cy.get('.availability').each(el => cy.wrap(el).should('contain', 'disponible'));
+    cy.get('.availability').each(el => cy.wrap(el).should('have.text', 'Disponible'));
     cy.screenshot('CY01-disponibilidad', { capture: 'viewport' });
   });
   it('CY02 Dados cuatro huéspedes cuando busco entonces solo ofrece familiar', () => {
@@ -56,7 +56,17 @@ describe('Aceptación BDD Hotel Andes', () => {
     cy.get('[name="email"]').type('cancelar@example.test');
     cy.contains('button', 'Confirmar reserva').click();
     cy.get('[aria-label="Reserva confirmada"]').should('be.visible');
-    cy.contains('button','Ver mis reservas').click();
+    const andina = '[aria-label="Reservar Habitación Andina"]';
+    cy.get('[aria-label="Reserva confirmada"] button[aria-label="Cerrar"]').click();
+    cy.get(andina).should('be.disabled').closest('.room-card').find('.availability')
+      .should('have.text', 'Reservada para estas fechas');
+    cy.get('[aria-label="Reservar Suite Panorámica"]').should('be.enabled');
+    cy.get('[aria-label="Ver detalles de Habitación Andina"]').click();
+    cy.get('[aria-label="Detalles de Habitación Andina"]').within(() => {
+      cy.contains('button', 'Reservada para estas fechas').should('be.disabled');
+      cy.get('button[aria-label="Cerrar"]').click();
+    });
+    cy.get('.header button.my-reservations').click();
     cy.contains('button', 'Cancelar reserva').click();
     cy.contains('button', 'Sí, cancelar').click();
     cy.get('.status-label').should('contain', 'Cancelada');
@@ -70,6 +80,9 @@ describe('Aceptación BDD Hotel Andes', () => {
         .should('contain', 'Estado: Cancelada')
         .and('contain', 'Correo electrónico: cancelar@example.test');
     });
+    cy.get('[aria-label="Mis reservas"] button[aria-label="Cerrar"]').click();
+    cy.get(andina).should('be.enabled').closest('.room-card').find('.availability')
+      .should('have.text', 'Disponible');
   });
   it('CY05 Dado correo inválido cuando envío entonces el servidor lo rechaza', () => {
     cy.request({ method: 'POST', url: '/api/reservations', failOnStatusCode: false, body: {

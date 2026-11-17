@@ -55,7 +55,7 @@ Integrantes: Josue Padilla, Santiago Roca y Karen Caral.
 9. Cancelación que libera la habitación.
 10. Protección frente a sobreventa con una inserción SQL atómica e idempotencia para reintentos.
 
-El inventario de demostración incluye 3 habitaciones Andinas, 2 Suites Panorámicas y 2 Refugios Familiares. Las tarifas de ejemplo son Bs 520, Bs 680 y Bs 840 por noche, respectivamente.
+Cada opción del catálogo representa una habitación. Una reserva confirmada bloquea sus noches para todos los visitantes. Al cancelar, esas noches se liberan. Las tarifas de ejemplo son Bs 520, Bs 680 y Bs 840 por noche, respectivamente.
 
 No hay pagos, envío de correos, cuentas propias ni panel de administración. Es un avance funcional, no un servicio hotelero real. El sitio publicado es privado por defecto. La base local y la base publicada son independientes.
 

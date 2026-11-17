@@ -6,10 +6,15 @@ import { ROOMS, todayISO, addDays, nights, validateSearch, money, dateLabel, typ
 
 type Reservation = { id: string; code: string; roomType: string; checkIn: string; checkOut: string; guests: number; guestName: string; email: string; nightlyRate: number; total: number; status: "confirmed" | "cancelled"; createdAt: string };
 type Available = Record<string, number>;
+class RoomReservedError extends Error {}
 async function api<T>(url: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(20000) });
-  const body = await response.json() as T & { error?: string };
-  if (!response.ok) throw new Error(body.error || "Ocurrió un problema. Intenta de nuevo.");
+  const body = await response.json() as T & { error?: string; code?: string };
+  if (!response.ok) {
+    const message = body.error || "Ocurrió un problema. Intenta de nuevo.";
+    if (body.code === "ROOM_RESERVED") throw new RoomReservedError(message);
+    throw new Error(message);
+  }
   return body;
 }
 function ErrorMessage({ children }: { children: ReactNode }) {
@@ -92,7 +97,7 @@ export default function Hotel() {
     setReservingId(room.id); setSearchError("");
     try {
       const data = await availabilityFor(filters); setAvailable(data); setSearched({ ...filters });
-      if (!data[room.id]) { setDetail(null); setSearchError("Esta habitación no está disponible en esas fechas. Puedes elegir otra habitación o cambiar las fechas."); return; }
+      if (data[room.id] === 0) { setDetail(null); setSearchError("Esta habitación ya está reservada para esas fechas. Elige otras fechas u otra habitación."); return; }
       setDetail(null); setSelected(room); setBookingDates({ ...filters }); setRequestKey(crypto.randomUUID()); setBookingError("");
     } catch (e) { setSearchError(e instanceof Error ? e.message : "No pudimos comprobar la disponibilidad."); }
     finally { setReservingId(null); }
@@ -102,21 +107,29 @@ export default function Hotel() {
     setBookingBusy(true); setBookingError("");
     try {
       const data = await api<{ reservation: Reservation }>("/api/reservations", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...bookingDates, roomType: selected.id, guestName, email, idempotencyKey: requestKey }) });
+      setAvailable(current => current && { ...current, [selected.id]: 0 });
       setSelected(null); setConfirmed(data.reservation); await loadReservations();
-      setAvailable(null); setSearched(null);
-    } catch (e) { setBookingError(e instanceof Error ? e.message : "No pudimos confirmar tu reserva. Intenta de nuevo."); }
+    } catch (e) {
+      if (e instanceof RoomReservedError) setAvailable(current => current && { ...current, [selected.id]: 0 });
+      setBookingError(e instanceof Error ? e.message : "No pudimos confirmar tu reserva. Intenta de nuevo.");
+    }
     finally { setBookingBusy(false); }
   }
   async function cancelReservation(id: string) {
     setCancelBusy(id); setReservationsError("");
     try {
       const data = await api<{ reservation: Reservation }>(`/api/reservations/${encodeURIComponent(id)}`, { method: "PATCH" });
-      setReservations(prev => prev.map(r => r.id === id ? data.reservation : r)); setCancelTarget(null); setAvailable(null); setSearched(null);
+      setReservations(prev => prev.map(r => r.id === id ? data.reservation : r)); setCancelTarget(null);
+      if (searched) {
+        try { setAvailable(await availabilityFor(searched)); }
+        catch { setAvailable(null); setSearched(null); }
+      }
     } catch (e) { setReservationsError(e instanceof Error ? e.message : "No pudimos cancelar la reserva."); }
     finally { setCancelBusy(null); }
   }
   const visibleRooms = ROOMS.filter(r => r.capacity >= filters.guests && (category === "all" || (category === "couple" ? r.capacity === 2 : r.capacity === 4)));
   const hasAvailability = available && Object.values(available).some(n => n > 0);
+  const detailReserved = detail !== null && available?.[detail.id] === 0;
   return <>
     <a className="skip-link" href="#habitaciones">Ir a las habitaciones</a>
     <header className="header" id="inicio"><div className="header-inner">
@@ -152,7 +165,7 @@ export default function Hotel() {
         <div className="room-grid">
           {visibleRooms.map(room => <article className="room-card" key={room.id}>
             <button className="room-photo-button" onClick={() => setDetail(room)} aria-label={`Ver detalles de ${room.name}`}><img src={room.image} alt={room.name + ", interior de estilo andino contemporáneo"} loading="lazy" />{room.featured && <span className="room-tag"><Mountain size={13} /> Vista panorámica</span>}<span className="photo-open"><Plus size={20} /></span></button>
-            <div className="room-body"><p className="room-category">{room.category}</p><h3><button onClick={() => setDetail(room)}>{room.name}</button></h3><div className="room-meta"><span><Users size={15} />Hasta {room.capacity}</span><span><Maximize size={14} />{room.size} m²</span><span><BedDouble size={16} />{room.capacity === 4 ? "3 camas" : room.id === "panoramica" ? "King" : "Queen"}</span></div><p className="room-description">{room.description}</p><div className="room-price-row"><div><span className="room-price">{money(room.rate)}</span><span className="price-period"> / noche</span><small>Desayuno e impuestos incluidos</small></div><button className="room-reserve" disabled={reservingId !== null || available?.[room.id] === 0} onClick={() => beginBooking(room)} aria-label={`Reservar ${room.name}`}>{reservingId === room.id ? <LoaderCircle className="spin" size={21} /> : <ArrowUpRight size={23} />}</button></div>{available && <p className={`availability ${available[room.id] ? "" : "unavailable"}`}>{available[room.id] ? <><span />{available[room.id]} {available[room.id] === 1 ? "habitación disponible" : "habitaciones disponibles"}</> : "Sin disponibilidad en estas fechas"}</p>}</div>
+            <div className="room-body"><p className="room-category">{room.category}</p><h3><button onClick={() => setDetail(room)}>{room.name}</button></h3><div className="room-meta"><span><Users size={15} />Hasta {room.capacity}</span><span><Maximize size={14} />{room.size} m²</span><span><BedDouble size={16} />{room.capacity === 4 ? "3 camas" : room.id === "panoramica" ? "King" : "Queen"}</span></div><p className="room-description">{room.description}</p><div className="room-price-row"><div><span className="room-price">{money(room.rate)}</span><span className="price-period"> / noche</span><small>Desayuno e impuestos incluidos</small></div><button className="room-reserve" disabled={reservingId !== null || available?.[room.id] === 0} onClick={() => beginBooking(room)} aria-label={`Reservar ${room.name}`}>{reservingId === room.id ? <LoaderCircle className="spin" size={21} /> : <ArrowUpRight size={23} />}</button></div>{available && <p className={`availability ${available[room.id] ? "" : "unavailable"}`}>{available[room.id] ? <><span />Disponible</> : "Reservada para estas fechas"}</p>}</div>
           </article>)}
         </div>
         {!visibleRooms.length && <div className="empty-filter"><Users size={30} /><h3>Un poco más de espacio para todos</h3><p>Para {filters.guests} huéspedes, te recomendamos el Refugio Familiar.</p><button className="button" onClick={() => setCategory("family")}>Ver habitación familiar <ArrowRight size={17} /></button></div>}
@@ -173,9 +186,9 @@ export default function Hotel() {
     </main>
     <footer className="footer"><div className="container footer-top"><Brand light /><div><a href="#habitaciones">Habitaciones</a><a href="#experiencia">La experiencia</a><button onClick={() => { setShowReservations(true); loadReservations(); }}>Mis reservas</button></div><span>Hecho para sentir Bolivia.</span></div><div className="container footer-bottom"><p>Proyecto académico de Josue Padilla, Santiago Roca y Karen Caral.</p><p>Imágenes ilustrativas. Reservas de demostración, sin cobros.</p></div></footer>
 
-    {detail && <Dialog title={`Detalles de ${detail.name}`} onClose={() => setDetail(null)} wide><div className="detail-grid"><img className="detail-photo" src={detail.image} alt={detail.name} /><div className="detail-content"><p className="eyebrow">TU ESPACIO EN LOS ANDES</p><h2>{detail.name}</h2><p>{detail.description}</p><div className="detail-specs"><span><Users size={18} />Hasta {detail.capacity} huéspedes</span><span><Maximize size={18} />{detail.size} m²</span><span><BedDouble size={18} />{detail.bed}</span></div><h3>Lo que te espera</h3><ul className="amenities">{detail.amenities.map(a => <li key={a}><Check size={16} />{a}</li>)}</ul><div className="detail-price"><strong>{money(detail.rate)}</strong><span> / noche, impuestos incluidos</span></div><button className="button full" disabled={reservingId !== null} onClick={() => beginBooking(detail)}>{reservingId ? <LoaderCircle size={18} className="spin" /> : <CalendarDays size={18} />}Consultar y reservar</button>{searchError && <ErrorMessage>{searchError}</ErrorMessage>}</div></div></Dialog>}
+    {detail && <Dialog title={`Detalles de ${detail.name}`} onClose={() => setDetail(null)} wide><div className="detail-grid"><img className="detail-photo" src={detail.image} alt={detail.name} /><div className="detail-content"><p className="eyebrow">TU ESPACIO EN LOS ANDES</p><h2>{detail.name}</h2><p>{detail.description}</p><div className="detail-specs"><span><Users size={18} />Hasta {detail.capacity} huéspedes</span><span><Maximize size={18} />{detail.size} m²</span><span><BedDouble size={18} />{detail.bed}</span></div><h3>Lo que te espera</h3><ul className="amenities">{detail.amenities.map(a => <li key={a}><Check size={16} />{a}</li>)}</ul><div className="detail-price"><strong>{money(detail.rate)}</strong><span> / noche, impuestos incluidos</span></div><button className="button full" disabled={reservingId !== null || detailReserved} onClick={() => beginBooking(detail)}>{reservingId ? <LoaderCircle size={18} className="spin" /> : <CalendarDays size={18} />}{detailReserved ? "Reservada para estas fechas" : "Consultar y reservar"}</button>{searchError && <ErrorMessage>{searchError}</ErrorMessage>}</div></div></Dialog>}
 
-    {selected && <Dialog title="Completa tu reserva" onClose={() => { if (!bookingBusy) setSelected(null); }} wide locked={bookingBusy}><div className="booking-grid"><aside className="booking-summary"><img src={selected.image} alt={selected.name} /><div><p className="eyebrow">TU PRÓXIMA ESCAPADA</p><h3>{selected.name}</h3><div className="summary-dates"><div><small>LLEGADA</small><strong>{dateLabel(bookingDates.checkIn)}</strong></div><ArrowRight size={17} /><div><small>SALIDA</small><strong>{dateLabel(bookingDates.checkOut)}</strong></div></div><p className="summary-guests"><Users size={16} />{bookingDates.guests} huéspedes <span>·</span> {nights(bookingDates.checkIn, bookingDates.checkOut)} noches</p><div className="summary-line"><span>{money(selected.rate)} × {nights(bookingDates.checkIn, bookingDates.checkOut)} noches</span><span>{money(selected.rate * nights(bookingDates.checkIn, bookingDates.checkOut))}</span></div><div className="summary-line"><span>Impuestos y desayuno</span><span>Incluidos</span></div><div className="summary-total"><span>Total de la estancia</span><strong>{money(selected.rate * nights(bookingDates.checkIn, bookingDates.checkOut))}</strong></div></div></aside><form className="booking-form" onSubmit={confirmBooking}><p className="eyebrow">SOLO FALTA UN PASO</p><h2>Tu descanso,<br /> casi listo.</h2><p>Completa tus datos y guarda tu reserva.</p><label>Nombre completo<input name="guestName" autoComplete="name" placeholder="Ej. Josue Padilla" minLength={3} maxLength={80} required value={guestName} onChange={e => setGuestName(e.target.value)} disabled={bookingBusy} /></label><label>Correo electrónico<input type="email" name="email" autoComplete="email" placeholder="tucorreo@ejemplo.com" maxLength={254} required value={email} onChange={e => setEmail(e.target.value)} disabled={bookingBusy} /></label><p className="form-hint">El correo aparecerá en tu comprobante. No enviaremos mensajes.</p>{bookingError && <ErrorMessage>{bookingError}</ErrorMessage>}<button className="button full" type="submit" disabled={bookingBusy}>{bookingBusy ? <><LoaderCircle size={18} className="spin" />Confirmando…</> : <>Confirmar reserva <ArrowRight size={18} /></>}</button><p className="demo-note"><ShieldCheck size={17} />Reserva de demostración. No se realizará ningún cobro.</p></form></div></Dialog>}
+    {selected && <Dialog title="Completa tu reserva" onClose={() => { if (!bookingBusy) setSelected(null); }} wide locked={bookingBusy}><div className="booking-grid"><aside className="booking-summary"><img src={selected.image} alt={selected.name} /><div><p className="eyebrow">TU PRÓXIMA ESCAPADA</p><h3>{selected.name}</h3><div className="summary-dates"><div><small>LLEGADA</small><strong>{dateLabel(bookingDates.checkIn)}</strong></div><ArrowRight size={17} /><div><small>SALIDA</small><strong>{dateLabel(bookingDates.checkOut)}</strong></div></div><p className="summary-guests"><Users size={16} />{bookingDates.guests} huéspedes <span>·</span> {nights(bookingDates.checkIn, bookingDates.checkOut)} noches</p><div className="summary-line"><span>{money(selected.rate)} × {nights(bookingDates.checkIn, bookingDates.checkOut)} noches</span><span>{money(selected.rate * nights(bookingDates.checkIn, bookingDates.checkOut))}</span></div><div className="summary-line"><span>Impuestos y desayuno</span><span>Incluidos</span></div><div className="summary-total"><span>Total de la estancia</span><strong>{money(selected.rate * nights(bookingDates.checkIn, bookingDates.checkOut))}</strong></div></div></aside><form className="booking-form" onSubmit={confirmBooking}><p className="eyebrow">SOLO FALTA UN PASO</p><h2>Tu descanso,<br /> casi listo.</h2><p>Completa tus datos y guarda tu reserva.</p><label>Nombre completo<input name="guestName" autoComplete="name" placeholder="Ej. Josue Padilla" minLength={3} maxLength={80} required value={guestName} onChange={e => setGuestName(e.target.value)} disabled={bookingBusy} /></label><label>Correo electrónico<input type="email" name="email" autoComplete="email" placeholder="tucorreo@ejemplo.com" maxLength={254} required value={email} onChange={e => setEmail(e.target.value)} disabled={bookingBusy} /></label><p className="form-hint">El correo aparecerá en tu comprobante. No enviaremos mensajes.</p>{bookingError && <ErrorMessage>{bookingError}</ErrorMessage>}<button className="button full" type="submit" disabled={bookingBusy || available?.[selected.id] === 0}>{bookingBusy ? <><LoaderCircle size={18} className="spin" />Confirmando…</> : <>Confirmar reserva <ArrowRight size={18} /></>}</button><p className="demo-note"><ShieldCheck size={17} />Reserva de demostración. No se realizará ningún cobro.</p></form></div></Dialog>}
 
     {confirmed && <Dialog title="Reserva confirmada" onClose={() => setConfirmed(null)}><div className="confirmation"><div className="success-icon"><Check size={31} /></div><p className="eyebrow">YA TIENES TU REFUGIO</p><h2>Tu reserva está lista.</h2><p>Gracias, {confirmed.guestName.split(" ")[0]}. Guarda tu código para consultar esta estancia.</p><div className="confirmation-code"><small>CÓDIGO DE RESERVA</small><strong>{confirmed.code}</strong></div><div className="confirmation-details"><strong>{ROOMS.find(r => r.id === confirmed.roomType)?.name}</strong><p>{dateLabel(confirmed.checkIn)} al {dateLabel(confirmed.checkOut)}</p><p>{confirmed.guests} huéspedes · {nights(confirmed.checkIn, confirmed.checkOut)} noches</p><span>Total <b>{money(confirmed.total)}</b></span></div><button className="button full" onClick={() => receipt(confirmed)}><Download size={18} />Descargar comprobante</button><button className="secondary-button full" onClick={() => { setConfirmed(null); setShowReservations(true); }}>Ver mis reservas <ArrowRight size={17} /></button><p className="demo-note centered">Confirmación de demostración, sin cobros ni envío de correos.</p></div></Dialog>}
 
